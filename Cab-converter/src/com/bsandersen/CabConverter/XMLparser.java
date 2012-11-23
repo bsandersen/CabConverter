@@ -36,6 +36,13 @@ public class XMLparser {
 	 */
 	private static XMLparser me;
 	
+	/*
+	 * allTests is an array of all the contests we read from XML files
+	 * contestCount contains the number of those files.
+	 */
+	private Contest allTests[] = new Contest[200];
+	private int contestCount = 0;
+	
 	/**
 	 * Constructor
 	 */
@@ -50,16 +57,41 @@ public class XMLparser {
 			// No contests defined. Sad, but legal.
 		} else {
 			for(int i = 0; i < contests.length; i++) {
-	    		File contest = new File(CCContestsDirectory, contests[i]);
-	    		XMLreader(contest);
+	    		File contestFile = new File(CCContestsDirectory, contests[i]);
+	    		Contest test = XMLreader(contestFile);
+	    		
+	    		if (test != null) {
+	    			allTests[contestCount++] = test;
+	    		}
 	    	}
 	    }
 	}
+	
+	/**
+	 * This method retrieves a vector of tests created when the test
+	 * repository directory (holding XML files describing contests)
+	 * was walked and parsed.
+	 * @return Array of Contest objects
+	 */
+	public Contest[] getAllTests() {
+		return allTests;
+	}
+	
+	/**
+	 * This method returns the number of valid Contest objects in
+	 * the Contest[] array returned by getAllTests().
+	 * @return The number of Contests
+	 */
+	public int getContestCount() {
+		return contestCount;
+	}
 
 	/*
-	 * 
+	 * This method opens the file specified in the path and creates a "contest"
+	 * root node that contains all the details from the XML file in a convenient
+	 * form.
 	 */
-	private void XMLreader(File fXmlFile) {
+	private Contest XMLreader(File fXmlFile) {
 		Contest contest = null;
 		try {
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -69,10 +101,11 @@ public class XMLparser {
 
 			contest = genContest(doc);
 			addUIElementList(doc, contest);
-			
+
 		} catch (Exception e) {
 
 		}
+		return contest;
 	  }
 	
 	/*
