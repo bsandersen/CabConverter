@@ -52,9 +52,14 @@ public class CCUI extends JFrame {
 		// Build menus
 		createMenuBar();
 		
+		// Obtain the contest data from our collection of contest XML files
+		XMLparser xmlParser = new XMLparser();
+		Contest contests[] = xmlParser.getAllTests();
+		int numContests = xmlParser.getContestCount();
+		
 		//Left side
 		PersonalData personalData = new PersonalData();
-		ContestDetails contestDetails = new ContestDetails();
+		ContestDetails contestDetails = new ContestDetails(contests, numContests);
 		JSplitPane leftSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,
 				personalData, contestDetails);
 		leftSplitPane.setDividerLocation(430);
@@ -73,10 +78,7 @@ public class CCUI extends JFrame {
 		// Obtain the user preferences and populate the UI
 		pm.retrieve(personalData);
 		
-		// Obtain the contest data from our collection of contest XML files
-		@SuppressWarnings("unused")
-		XMLparser xmlParser = new XMLparser();
-		
+
 		// Reveal our masterpiece
 		setVisible(true);
 		
