@@ -35,7 +35,7 @@ public class ContestDetails extends JScrollPane {
 	/**
 	 * Constructor
 	 */
-	public ContestDetails() {
+	public ContestDetails(Contest contests[], int contestCount) {
 		// We will use absolute positioning. So, no layout manager.
 		setLayout(null);
 		
@@ -44,8 +44,10 @@ public class ContestDetails extends JScrollPane {
 		add(contestList);
 		
 		contestList.addActionListener(new SelectionMadeListener());
-		contestList.addItem("CQ WW CW");
-		contestList.addItem("CQ WW SSB");
+		contestList.addItem("Select contest");
+		for (int i = 0; i < contestCount; i++) {
+			contestList.addItem(contests[i].getName());
+		}
 		setSize(200,450);
 		createHorizontalScrollBar();
 		createVerticalScrollBar();
