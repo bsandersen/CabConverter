@@ -47,6 +47,7 @@ public class XMLparser {
 	 * Constructor
 	 */
 	public XMLparser() {
+		me = this;
 		JFileChooser chooser = new JFileChooser();
 		FileSystemView view = chooser.getFileSystemView();
 		File homeDirectory = view.getHomeDirectory();
@@ -65,6 +66,20 @@ public class XMLparser {
 	    		}
 	    	}
 	    }
+	}
+	
+	/**
+	 * Find the appropriate contest by name and return it
+	 * @param name The name of the contest to find
+	 * @return A reference to the Contest structure matching the name
+	 */
+	public Contest findContestByName(String name) {		
+		for (int i = 0; i < contestCount; i++) {
+			if (allTests[i].getName().compareTo(name) == 0) {
+				return allTests[i];
+			}
+		}
+		return null;
 	}
 	
 	/**

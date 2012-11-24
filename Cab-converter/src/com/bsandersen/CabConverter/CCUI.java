@@ -29,6 +29,7 @@ public class CCUI extends JFrame {
 	@SuppressWarnings("unused")
 	private ADIFparser adifParser = new ADIFparser();
 	private PreferencesManager pm = new PreferencesManager();
+	private XMLparser xmlParser = new XMLparser();
 	
 	/**
 	 * This class is a singleton that build the main user interface
@@ -53,7 +54,7 @@ public class CCUI extends JFrame {
 		createMenuBar();
 		
 		// Obtain the contest data from our collection of contest XML files
-		XMLparser xmlParser = new XMLparser();
+		
 		Contest contests[] = xmlParser.getAllTests();
 		int numContests = xmlParser.getContestCount();
 		
