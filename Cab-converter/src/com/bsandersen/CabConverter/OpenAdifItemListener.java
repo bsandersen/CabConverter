@@ -10,14 +10,16 @@ import java.awt.event.ActionListener;
 import javax.swing.JFileChooser;
 
 /**
- * The log consumer object is invoked when the File->Open command is issued.
+ * This object is invoked when the File->Open command is issued.
  * Our job is to open organize a file selection, open the file, parse it,
  * and get the file contents displayed and ready for processing.
  * 
  * @author B. Scott Andersen
  * 
+ * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
-public class LogConsumer implements ActionListener {
+public class OpenAdifItemListener implements ActionListener {
 	
 	/**
 	 * This is the method that gets invoked when File->Open is selected.

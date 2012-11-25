@@ -19,6 +19,9 @@ import javax.swing.*;
  * in 60 seconds or less.
  * 
  * @author 	B. Scott Andersen
+ * 
+ * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  *
  */
 public class CCUI extends JFrame {
@@ -103,7 +106,7 @@ public class CCUI extends JFrame {
 		fileMenu.add(generateItem);
 		fileMenu.add(quitItem);
 		
-		openItem.addActionListener(new LogConsumer());
+		openItem.addActionListener(new OpenAdifItemListener());
 		saveItem.addActionListener(new SavePreferencesListener());
 		quitItem.addActionListener(new quitListener());
 		

@@ -5,7 +5,7 @@
  */
 package com.bsandersen.CabConverter;
 
-/* 
+/**
  * This class contains the details for a given field of a QSO record
  * or a heading line within a Cabrillo file. It can be a hard-coded text 
  * element like "QSO:" or "START-OF-LOG: 3.0" by having the
@@ -13,7 +13,11 @@ package com.bsandersen.CabConverter;
  * constant. It can also be a variable from the ADIF record or the 
  * UI elements of the PersonalData or the ContestDetails by
  * mentioning the field name in the elementType (such as "Mode").
+ * 
  * @author B. Scott Andersen
+ * 
+ * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
 public class CabFileNode {
 	private String elementType = "";

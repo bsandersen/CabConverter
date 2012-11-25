@@ -8,7 +8,11 @@ package com.bsandersen.CabConverter;
 /**
  * This class contains all the information for a given line of text
  * (not a QSO line) within a Cabrillo file. 
+ * 
  * @author B. Scott Andersen
+ * 
+ * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
 public class CabrilloLine {
 	private PersonalData personalData = PersonalData.getInstance();

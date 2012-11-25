@@ -12,6 +12,9 @@ package com.bsandersen.CabConverter;
  * constitutes a contest log.
  * 
  * @author B. Scott Andersen
+ * 
+ * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
 public class ADIFrecord {
 	String		call;					// Callsign of the contacted station

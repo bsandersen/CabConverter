@@ -15,6 +15,8 @@ import javax.swing.table.AbstractTableModel;
  * 
  * @author B. Scott Andersen
  *
+ * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
 public class LogViewer extends JScrollPane {
 	

@@ -20,6 +20,9 @@ import javax.swing.JTextField;
  * this pane from the XML specification of the contest.
  * 
  * @author B. Scott Andersen
+ * 
+ * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
+ * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  *
  */
 public class ContestDetails extends JScrollPane {
