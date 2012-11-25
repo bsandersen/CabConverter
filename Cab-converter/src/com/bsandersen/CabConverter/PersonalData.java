@@ -5,6 +5,9 @@
  */
 package com.bsandersen.CabConverter;
 
+import java.awt.Component;
+
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -33,6 +36,25 @@ public class PersonalData extends JScrollPane {
 	}
 	
 	/*
+	 * These are the labels the correspond to the array of text fields
+	 * generated in the constructor.
+	 */
+	public static final String key_Callsign = "Callsign";
+	public static final String key_Name = "Name";
+	public static final String key_Address1 = "Address1";
+	public static final String key_Address2 = "Address2";
+	public static final String key_City = "City"; 
+	public static final String key_State = "State";
+	public static final String key_Postal = "Postal";
+	public static final String key_Country = "Country";
+	public static final String key_Email = "Email";
+	public static final String key_IOTA = "IOTA";
+	public static final String key_Island = "Island";
+	public static final String key_ARRLsection = "ARRLsection";
+	public static final String key_Zone = "Zone";
+	public static final String key_Club = "Club";
+	
+	/*
 	 * These are used as an index into the array of text fields created below.
 	 */
 	private enum DataIndex {
@@ -52,6 +74,26 @@ public class PersonalData extends JScrollPane {
 		"IOTA designation", "Island Name", 
 		"ARRL Section", "CQ Zone", 
 		"Club"
+	};
+	
+	/*
+	 * These are the keyword/keys that can be used in macros inside an XML file.
+	 */
+	private static String keys[] = {
+		key_Callsign,
+		key_Name,
+		key_Address1,
+		key_Address2,
+		key_City,
+		key_State,
+		key_Postal,
+		key_Country,
+		key_Email,
+		key_IOTA,
+		key_Island,
+		key_ARRLsection,
+		key_Zone,
+		key_Club
 	};
 	
 	/*
@@ -103,68 +145,87 @@ public class PersonalData extends JScrollPane {
 		    
 		    fields[i] = new JTextField();
 		    fields[i].setBounds(x2position, yPosition, textWidths[i], height);
+		    fields[i].setName(keys[i]);
 		    add(fields[i]);
 		    yPosition += height;
 		}
 		setSize(200,450);
 		setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
 	}
-	
+
+	/**
+	 * This method obtains the value in the UI for the given element name
+	 * @param key The element name we are seeking (it will be a UI component)
+	 * @return The string representing the value in the UI element, empty string if not found.
+	 */
+	public String getExpandedValue(String key) {
+		String s = "";
+		Component c = null;
+		Component allComponents[] = getComponents();
+		
+		for (int i = 0; i < allComponents.length; i++) {
+			c = allComponents[i];
+
+			String name = c.getName();
+			if ((name != null) && (name.compareTo(key) == 0)) {
+				if (c instanceof JTextField) {
+					JTextField t = (JTextField)c;
+					s = new String(t.getText());
+					break;
+				} else if (c instanceof JComboBox) {
+					JComboBox b = (JComboBox)c;
+					s = new String((String)b.getSelectedItem());
+					break;
+				} else {
+					// ERROR!
+				}
+			} // if name matches key
+		} // for all components
+		
+		return s;
+	}
 	/*
 	 * getters
 	 */
 	public String getCallSign() {
 		return new String(fields[DataIndex.CALLSIGN.ordinal()].getText());
 	}
-	
 	public String getName() {
 		return new String(fields[DataIndex.NAME.ordinal()].getText());
 	}
-	
 	public String getAddress1() {
 		return new String(fields[DataIndex.ADDRESS1.ordinal()].getText());
 	}
-	
 	public String getAddress2() {
 		return new String(fields[DataIndex.ADDRESS2.ordinal()].getText());
 	}
-	
 	public String getCity() {
 		return new String(fields[DataIndex.CITY.ordinal()].getText());
 	}
-	
 	public String getProvince() {
 		return new String(fields[DataIndex.PROVINCE.ordinal()].getText());
 	}
-	
 	public String getPostalCode() {
 		return new String(fields[DataIndex.POSTALCODE.ordinal()].getText());
 	}
-	
 	public String getCountry() {
 		return new String(fields[DataIndex.COUNTRY.ordinal()].getText());
 	}
-
 	public String getEmail() {
 		return new String(fields[DataIndex.EMAIL.ordinal()].getText());
 	}
-	
 	public String getIotaDesignator() {
 		return new String(fields[DataIndex.IOTADESGINATOR.ordinal()].getText());
 	}
-	
 	public String getIslandName() {
 		return new String(fields[DataIndex.ISLANDNAME.ordinal()].getText());
 	}
-	
 	public String getArrlSection() {
 		return new String(fields[DataIndex.ARRLSECTION.ordinal()].getText());
 	}
-	
 	public String getCqZone() {
 		return new String(fields[DataIndex.CQZONE.ordinal()].getText());
 	}
-	
 	public String getClub() {
 		return new String(fields[DataIndex.CLUB.ordinal()].getText());
 	}	
@@ -175,55 +236,42 @@ public class PersonalData extends JScrollPane {
 	public void setCallSign(String s) {
 		fields[DataIndex.CALLSIGN.ordinal()].setText(new String(s));
 	}
-	
 	public void setName(String s) {
 		fields[DataIndex.NAME.ordinal()].setText(new String(s));
 	}
-	
 	public void setAddress1(String s) {
 		fields[DataIndex.ADDRESS1.ordinal()].setText(new String(s));
 	}
-	
 	public void setAddress2(String s) {
 		fields[DataIndex.ADDRESS2.ordinal()].setText(new String(s));
 	}
-	
 	public void setCity(String s) {
 		fields[DataIndex.CITY.ordinal()].setText(new String(s));
 	}
-	
 	public void setProvince(String s) {
 		fields[DataIndex.PROVINCE.ordinal()].setText(new String(s));
 	}
-	
 	public void setPostalCode(String s) {
 		fields[DataIndex.POSTALCODE.ordinal()].setText(new String(s));
 	}
-
 	public void setCountry(String s) {
 		fields[DataIndex.COUNTRY.ordinal()].setText(new String(s));
 	}
-
 	public void setEmail(String s) {
 		fields[DataIndex.EMAIL.ordinal()].setText(new String(s));
 	}
-	
 	public void setIotaDesignator(String s) {
 		fields[DataIndex.IOTADESGINATOR.ordinal()].setText(new String(s));
 	}
-	
 	public void setIslandName(String s) {
 		fields[DataIndex.ISLANDNAME.ordinal()].setText(new String(s));
 	}
-	
 	public void setArrlSection(String s) {
 		fields[DataIndex.ARRLSECTION.ordinal()].setText(new String(s));
 	}
-	
 	public void getCqZone(String s) {
 		fields[DataIndex.CQZONE.ordinal()].setText(new String(s));
 	}
-	
 	public void getClub(String s) {
 		fields[DataIndex.CLUB.ordinal()].setText(new String(s));
 	}	

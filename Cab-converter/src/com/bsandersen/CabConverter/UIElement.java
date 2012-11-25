@@ -12,7 +12,7 @@ package com.bsandersen.CabConverter;
  * @author B. Scott Andersen
  *
  */
-public class UIelement {
+public class UIElement {
 	/**
 	 * UI elements have specific types that are then mapped to
 	 * user interface components within the contest panel.
@@ -34,12 +34,12 @@ public class UIelement {
 	private int numPickValues = 0;
 	
 	// Pointer to the next UIelement
-	private UIelement next = null;
+	private UIElement next = null;
 	
 	/**
 	 * Constructor
 	 */
-	public UIelement(String name, String prompt, ElementType type) {
+	public UIElement(String name, String prompt, ElementType type) {
 		setName(name);
 		setPrompt(prompt);
 		setType(type);
@@ -88,11 +88,11 @@ public class UIelement {
 		this.type = type;
 	}
 
-	public UIelement getNext() {
+	public UIElement getNext() {
 		return next;
 	}
 
-	public void setNext(UIelement next) {
+	public void setNext(UIElement next) {
 		this.next = next;
 	}
 

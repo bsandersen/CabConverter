@@ -116,7 +116,7 @@ public class XMLparser {
 
 			contest = genContest(doc);
 			addUIElementList(doc, contest);
-
+			addCabrilloElementList(doc, contest);
 		} catch (Exception e) {
 
 		}
@@ -164,7 +164,7 @@ public class XMLparser {
 	 * add the list to the contest node.
 	 */
 	private void addUIElementList(Document doc, Contest contest) {
-		UIelement e;
+		UIElement e;
 		String name = "";
 		String prompt = "";
 		String typeString = "";
@@ -207,9 +207,9 @@ public class XMLparser {
 						
 						// There are only two types:
 						if (isListType) {
-							e = new UIelement(name, prompt, UIelement.ElementType.LIST);
+							e = new UIElement(name, prompt, UIElement.ElementType.LIST);
 						} else {
-							e = new UIelement(name, prompt, UIelement.ElementType.TEXT);
+							e = new UIElement(name, prompt, UIElement.ElementType.TEXT);
 						}
 
 						// Add this UI element to the list of all elements
@@ -240,4 +240,88 @@ public class XMLparser {
 		} // for all UI nodes
 	} // addUIElementList
 	
+	/*
+	 * Generate a list of UI elements from the XML file and
+	 * add the list to the contest node.
+	 */
+	private void addCabrilloElementList(Document doc, Contest contest) {
+		String name = "";
+
+		// Get the list of nodes associated with the document element UI
+		NodeList uiRoot = doc.getElementsByTagName("Cabrillo");
+
+		// Walk down the length of that list
+		for (int topIterator = 0; topIterator < uiRoot.getLength(); topIterator++) {
+			Node nNode = uiRoot.item(topIterator);
+			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+				
+				// This is going to be the <Cabrillo> element
+				Element topCabrilloElement = (Element) nNode;
+
+				// All the children of the <Cabrillo> element should be either
+				// <Line> elements or a single <QSO> element
+				NodeList topCabrilloElementChildren = topCabrilloElement.getChildNodes();
+				for (int cabKids = 0; cabKids < topCabrilloElementChildren.getLength(); cabKids++) {
+					Node cabKidNode = topCabrilloElementChildren.item(cabKids);
+					if (cabKidNode.getNodeType() == Node.ELEMENT_NODE) {
+						CabrilloLine line = null;
+						CabrilloQSO qso = null;
+						
+						// Optimistically create the data structures for this
+						// If things go wrong, it won't matter: we will invalidate 
+						// this contest data structure
+						line = new CabrilloLine();
+						contest.addCabrilloLine(line);
+						
+						// IF this is an element under <Cabrillo> it should be either
+						// <Line> or <QSO>
+						Element cabrilloChildElement = (Element)cabKidNode;
+
+						// This should be the name after the open angle-bracket
+						name = cabrilloChildElement.getNodeName();
+						if (name.compareToIgnoreCase("Line") == 0) {
+							// We expect to have children, although a blank line is
+							// not illegal per se.
+							NodeList lineKids = cabrilloChildElement.getChildNodes();
+							for (int elemIndex = 0; elemIndex < lineKids.getLength(); elemIndex++) {
+								Node lineChildElement = lineKids.item(elemIndex);
+								
+								// We can have either <Text> or a macro that would be
+								// expanded with the values in the UI. See if it is a
+								// <Text> type.
+								if (lineChildElement.getNodeName().compareToIgnoreCase("Text") == 0) {
+									// We expect to see a text value in here.
+									if (lineChildElement.getNodeType() == Node.ELEMENT_NODE) {
+										// Get the Item node
+										Element lineSubchildNode = (Element)lineChildElement;
+										NodeList itemText = lineSubchildNode.getChildNodes();
+										for (int j = 0; j < itemText.getLength(); j++) {
+											Node theText = itemText.item(j);
+											if (theText.getNodeType() == Node.TEXT_NODE) {
+												line.addElement("Text",  theText.getNodeValue());
+											} // if is a text node
+										} // for j
+									} // if is an element
+								} else {
+									// We don't expect to see any children from
+									// simple macro calls. Just add the macro name.
+									line.addElement(lineChildElement.getNodeName(), "");
+								}
+							}
+						} else if (name.compareToIgnoreCase("QSO") == 0) {
+							line.setQsoPlaceholder(true);
+							qso = new CabrilloQSO();
+							contest.setQso(qso);
+							
+							// Process the QSO details
+							//TODO
+							
+						} else {
+							// error
+						} // Was neither <Line> or <QSO>
+					} // if an element node
+				} // for all Cabrillo kids
+			} // if is an element node
+		} // for all Cabrillo nodes
+	} // addCabrilloElementList
 } // XMLparser

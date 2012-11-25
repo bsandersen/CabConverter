@@ -39,7 +39,15 @@ public class ContestDetails extends JScrollPane {
 	protected static String selectionMade = "";
 	
 	private final String selectorName = "CabConverter-selector-box";
-	private final ContestDetails us;
+	private static ContestDetails us;
+	
+	/**
+	 * Ths class is a Singleton. Here is the get instance method.
+	 * @return A reference to this instance of the singleton.
+	 */
+	public static ContestDetails getInstance() {
+		return us;
+	}
 	
 	/**
 	 * Constructor
@@ -68,10 +76,10 @@ public class ContestDetails extends JScrollPane {
 	 * @param key The element name we are seeking (it will be a UI component)
 	 * @return The string representing the value in the UI element, empty string if not found.
 	 */
-	public String getContestSpecificValue(String key) {
+	public String getExpandedValue(String key) {
 		String s = "";
 		Component c = null;
-		Component allComponents[] = us.getComponents();
+		Component allComponents[] = getComponents();
 		
 		for (int i = 0; i < allComponents.length; i++) {
 			c = allComponents[i];
@@ -81,9 +89,11 @@ public class ContestDetails extends JScrollPane {
 				if (c instanceof JTextField) {
 					JTextField t = (JTextField)c;
 					s = new String(t.getText());
+					break;
 				} else if (c instanceof JComboBox) {
 					JComboBox b = (JComboBox)c;
 					s = new String((String)b.getSelectedItem());
+					break;
 				} else {
 					// ERROR!
 				}
@@ -126,23 +136,23 @@ public class ContestDetails extends JScrollPane {
 			int xWidthTextFields = 200;
 			int xWidthComboBoxes = 200;
 			
-			UIelement e =  c.getUIElements();
+			UIElement e =  c.getUIElements();
 			while (e != null) {
-				UIelement.ElementType type = e.getType();
+				UIElement.ElementType type = e.getType();
 				String prompt = e.getPrompt();
 				
 				JLabel lab = new JLabel(prompt);
 				lab.setBounds(x, y, xSpacing, ySpacing);
 			    us.add(lab);
 			    
-				if (type == UIelement.ElementType.TEXT) {
+				if (type == UIElement.ElementType.TEXT) {
 					JTextField field = new JTextField();
 				    field.setBounds(xSpacing, y, xWidthTextFields, yHeight);
 				    
 				    // We use the XML element name as the key so we can find this value later
 				    field.setName(e.getName());
 				    us.add(field);
-				} else if (type == UIelement.ElementType.LIST) {
+				} else if (type == UIElement.ElementType.LIST) {
 					JComboBox box = new JComboBox();
 					box.setBounds(xSpacing, y, xWidthComboBoxes, yHeight);
 					

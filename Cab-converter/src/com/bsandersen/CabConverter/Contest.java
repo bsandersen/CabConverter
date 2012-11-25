@@ -21,8 +21,21 @@ public class Contest {
 	 * The list of UI elements associated with this contest.
 	 * This is used to populate the UI contest panel area.
 	 */
-	private UIelement uiListHead = null;
-	private UIelement uiListTail = null;
+	private UIElement uiListHead = null;
+	private UIElement uiListTail = null;
+	
+	/*
+	 * This is the list of Line elements in the Cabrillo
+	 * section of the XML file. Line elements make up 
+	 * everything that is not a QSO element type.
+	 */
+	private CabrilloLine cabHead = null;
+	private CabrilloLine cabTail = null;
+	
+	/*
+	 * We only have one of these
+	 */
+	private CabrilloQSO qso = null;
 	
 	/**
 	 * Constructor
@@ -37,7 +50,7 @@ public class Contest {
 	 * Adds a UI element to this contest. Order is preserved
 	 * between adding and retrieving the elements.
 	 */
-	public void addUIElement(UIelement e) {
+	public void addUIElement(UIElement e) {
 		if (uiListHead == null) {
 			uiListHead = e;
 			uiListTail = e;
@@ -48,12 +61,26 @@ public class Contest {
 	}
 	
 	/**
+	 * Adds a CabrilloLine element to this contest. Order
+	 * is preserved between adding and retrieving the elements.
+	 */
+	public void addCabrilloLine(CabrilloLine line) {
+		if (cabHead != null) {
+			cabTail.setNext(line);
+			cabTail = line;
+		} else {
+			cabHead = line;
+			cabTail = line;
+		}
+	}
+	
+	/**
 	 * Returns the head of the list of UI elements.
 	 * Order is preserved between adding and retrieving 
 	 * the elements.
 	 * @return
 	 */
-	public UIelement getUIElements() {
+	public UIElement getUIElements() {
 		return uiListHead;
 	}
 
@@ -77,5 +104,13 @@ public class Contest {
 	}
 	public void setShortName(String shortName) {
 		this.shortName = new String(shortName);
+	}
+
+	public CabrilloQSO getQso() {
+		return qso;
+	}
+
+	public void setQso(CabrilloQSO qso) {
+		this.qso = qso;
 	}
 }
