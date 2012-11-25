@@ -42,6 +42,7 @@ public class XMLparser {
 	 */
 	private Contest allTests[] = new Contest[200];
 	private int contestCount = 0;
+	private String fileNameBeingProcessed = null;
 	
 	/**
 	 * Constructor
@@ -109,6 +110,9 @@ public class XMLparser {
 	private Contest XMLreader(File fXmlFile) {
 		Contest contest = null;
 		try {
+			// Set this member to make error messages easier to create
+			fileNameBeingProcessed = fXmlFile.getName();
+			
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(fXmlFile);
@@ -118,7 +122,7 @@ public class XMLparser {
 			addUIElementList(doc, contest);
 			addCabrilloElementList(doc, contest);
 		} catch (Exception e) {
-
+			System.out.println("XML contest file " + fileNameBeingProcessed + " could not be found or had other errors.");
 		}
 		return contest;
 	  }
@@ -154,6 +158,7 @@ public class XMLparser {
 			return new Contest(contestName, contestSponsor, contestShortName);
 		} else {
 			// This is a problem. We have a malformed XML file.
+			System.out.println("The XML contest file " + fileNameBeingProcessed + " did not have a <Contest> element.");
 			return null;
 		}
 
@@ -172,6 +177,11 @@ public class XMLparser {
 		// Get the list of nodes associated with the document element UI
 		NodeList uiRoot = doc.getElementsByTagName("UI");
 
+		if (uiRoot == null) {
+			System.out.println("The XML contest file " + fileNameBeingProcessed + " did not have a <UI> element.");
+			return;
+		}
+		
 		// Walk down the length of that list
 		for (int topIterator = 0; topIterator < uiRoot.getLength(); topIterator++) {
 			Node nNode = uiRoot.item(topIterator);
@@ -248,11 +258,16 @@ public class XMLparser {
 		String name = "";
 
 		// Get the list of nodes associated with the document element UI
-		NodeList uiRoot = doc.getElementsByTagName("Cabrillo");
+		NodeList cabRoot = doc.getElementsByTagName("Cabrillo");
 
+		if (cabRoot == null) {
+			System.out.println("The XML contest file " + fileNameBeingProcessed + " did not have a <Cabrillo> element.");
+			return;
+		}
+		
 		// Walk down the length of that list
-		for (int topIterator = 0; topIterator < uiRoot.getLength(); topIterator++) {
-			Node nNode = uiRoot.item(topIterator);
+		for (int topIterator = 0; topIterator < cabRoot.getLength(); topIterator++) {
+			Node nNode = cabRoot.item(topIterator);
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				
 				// This is going to be the <Cabrillo> element
@@ -314,10 +329,44 @@ public class XMLparser {
 							contest.setQso(qso);
 							
 							// Process the QSO details
-							//TODO
-							
+							// We expect to have children. We can't produce a reasonable
+							// output file without them. But, we won't declare an error here
+							// if no children are present
+							NodeList qsoKids = cabrilloChildElement.getChildNodes();
+							for (int elemIndex = 0; elemIndex < qsoKids.getLength(); elemIndex++) {
+								Node qsoChildElement = qsoKids.item(elemIndex);
+								
+								// We can have either <Text> or a macro that would be
+								// expanded with the values in the UI. See if it is a
+								// <Text> type.
+								if (qsoChildElement.getNodeName().compareToIgnoreCase("Text") == 0) {
+									// We expect to see a text value in here.
+									if (qsoChildElement.getNodeType() == Node.ELEMENT_NODE) {
+										// Get the Item node
+										Element lineSubchildNode = (Element)qsoChildElement;
+										NodeList itemText = lineSubchildNode.getChildNodes();
+										for (int j = 0; j < itemText.getLength(); j++) {
+											Node theText = itemText.item(j);
+											if (theText.getNodeType() == Node.TEXT_NODE) {
+												qso.addElement("Text",  theText.getNodeValue());
+											} // if is a text node
+										} // for j
+									} // if is an element
+								} else if (Character.isLetter(qsoChildElement.getNodeName().charAt(0))) {
+									// We don't expect to see any children from
+									// simple macro calls. Just add the macro name.
+									// We do filter on the first character, though, because the XML parser
+									// will pick up all sorts of stuff and include it as #text items.
+									qso.addElement(qsoChildElement.getNodeName(), "");
+								} else {
+									// Just XML garbage. Ignore
+								}
+							} // For all the QSO children
 						} else {
 							// error
+							System.out.println("The XML contest file " + fileNameBeingProcessed + 
+									" <Cabrillo> section had an element that was neither <Line> nor <QSO>.");
+							return;
 						} // Was neither <Line> or <QSO>
 					} // if an element node
 				} // for all Cabrillo kids

@@ -19,8 +19,6 @@ public class CabrilloQSO {
 	CabFileNode qsoDetailHead = null;
 	CabFileNode qsoDetailTail = null;
 	
-	private Formatter f = new Formatter();
-	
 	/**
 	 * addElement adds the essence of the element to the QSO description.
 	 * If the element is a Text item, the type "Text" and the text element's
@@ -50,6 +48,7 @@ public class CabrilloQSO {
 		String s = null;
 		String key;
 		CabFileNode e = qsoDetailHead;
+		Formatter f = new Formatter();
 
 		while (e != null) {
 			key = e.value();
@@ -92,6 +91,7 @@ public class CabrilloQSO {
 			}
 			e = e.getNext();
 		}
+		f.close();
 		return s;
 	}
 }
