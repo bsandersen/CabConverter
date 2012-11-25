@@ -60,8 +60,16 @@ public class GenerateCabrilloListener implements ActionListener {
 		while (line != null) {
 			if (line.isQsoPlaceholder()) {
 				// Handle the QSO loop
+				CabrilloQSO qsoTemplate = contest.getQso();
+				ADIFrecord rec = ADIFparser.getInstance().getAdifRecords();
 				
-				
+				if (qsoTemplate != null) {
+					while (rec != null) {
+						cabFile.println(qsoTemplate.formatQSO(rec));
+						rec = rec.getNext();
+					}
+					
+				} // The QSO template exists in the XML file
 			} else {
 				// Handle regular <Line> elements
 				 cabFile.println(line.value());

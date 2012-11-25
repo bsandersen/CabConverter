@@ -28,6 +28,7 @@ public class ADIFrecord {
 	int			serialNumberReceived;	// Serial number sent (-1 if not present)
 	String		exchangeSent;			// String part of the exchange, if any
 	String		exchangeReceived;		// String part of the exchange, if any
+	private ADIFrecord	next;					// The next ADIF record in this collection
 	
 	/**
 	 * Default constructor
@@ -44,6 +45,7 @@ public class ADIFrecord {
 		serialNumberReceived = -1;
 		exchangeSent = "";
 		exchangeReceived = "";
+		next = null;
 	}
 	
 	/**
@@ -78,6 +80,13 @@ public class ADIFrecord {
 		serialNumberReceived = convertSerial(pserialNumberReceived);
 		exchangeSent = pexchangeSent;
 		exchangeReceived = pexchangeReceived;
+	}
+	
+	public void setNext(ADIFrecord next) {
+		this.next = next;
+	}
+	public ADIFrecord getNext() {
+		return next;
 	}
 	
 	/*

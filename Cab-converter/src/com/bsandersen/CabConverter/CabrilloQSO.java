@@ -48,22 +48,31 @@ public class CabrilloQSO {
 	 * @return A properly formatted QSO: line for the Cabrillo file
 	 */
 	public String formatQSO(ADIFrecord r) {
-		String s = null;
+		String s;
 		String key;
 		CabFileNode e = qsoDetailHead;
-		Formatter f = new Formatter();
+		Formatter f;
+		PersonalData personalData = PersonalData.getInstance();
 
+		s = "";
 		while (e != null) {
 			key = e.value();
 
 				if (key.compareToIgnoreCase("TheirCallsign") == 0) {
 					s = s.concat(r.call + " ");
+				} else if (key.compareToIgnoreCase("Callsign") == 0) {
+					// Special case: we get this from the personal data
+					s = s.concat(personalData.getCallSign() + " ");
 				} else if (key.compareToIgnoreCase("Date") == 0) {
 					s = s.concat(r.date + " ");
 				} else if (key.compareToIgnoreCase("Time") == 0) {
 					s = s.concat(r.time + " ");
 				} else if (key.compareToIgnoreCase("Frequency") == 0) {
-
+					f = new Formatter();
+					long v = new Double(r.frequency * 1000.0).longValue();
+					f.format("%05d ", v);
+					s = s.concat(f.toString());
+					f.close();
 				} else if (key.compareToIgnoreCase("Mode") == 0) {
 					if ((r.mode.compareToIgnoreCase("SSB") == 0) ||
 						(r.mode.compareToIgnoreCase("USB") == 0) ||
@@ -80,21 +89,40 @@ public class CabrilloQSO {
 				} else if (key.compareToIgnoreCase("RSTr") == 0) {
 					s = s.concat(r.rstReceived + " ");
 				} else if (key.compareToIgnoreCase("STXn") == 0) {
+					f = new Formatter();
 					f.format("%3d", r.serialNumberSent);
 					s = s.concat(new String(f.toString()) + " ");
-				} else if (key.compareToIgnoreCase("STXr") == 0) {
+					f.close();
+				} else if (key.compareToIgnoreCase("SRXn") == 0) {
+					f = new Formatter();
 					f.format("%3d", r.serialNumberReceived);
 					s = s.concat(new String(f.toString()) + " ");
+					f.close();
 				} else if (key.compareToIgnoreCase("STX") == 0) {
 					s = s.concat(r.exchangeSent + " ");
 				} else if (key.compareToIgnoreCase("SRX") == 0) {
 					s = s.concat(r.exchangeReceived + " ");
+				} else if (key.compareToIgnoreCase("STX-ARRL-SS-NOCALL") == 0) {
+					String goof;
+					String temp = r.exchangeSent;
+					goof = new String(temp.substring(0,1) + " ");
+					temp = temp.substring(2);
+					int space = temp.indexOf(' ');
+					goof = goof.concat(temp.substring(space+1));
+					s = s.concat(goof + " ");
+				} else if (key.compareToIgnoreCase("SRX-ARRL-SS-NOCALL") == 0) {
+					String goof;
+					String temp = r.exchangeReceived;
+					goof = new String(temp.substring(0,1) + " ");
+					temp = temp.substring(2);
+					int space = temp.indexOf(' ');
+					goof = goof.concat(temp.substring(space+1));
+					s = s.concat(goof + " ");
 				} else {
-					s = s.concat(key);
+					s = s.concat(key + " ");
 			}
 			e = e.getNext();
 		}
-		f.close();
 		return s;
 	}
 }

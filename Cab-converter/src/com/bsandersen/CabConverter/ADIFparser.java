@@ -49,8 +49,16 @@ public class ADIFparser {
 	private int lineIndex;
 	private String line;
 	
+	/*
+	 * Collection as a linked list
+	 */
+	ADIFrecord adifHead = null;
+	ADIFrecord adifTail = null;
+	
 	/**
 	 * Constructor
+	 * 
+	 * 
 	 */
 	public ADIFparser() {
 		me = this;
@@ -78,6 +86,10 @@ public class ADIFparser {
 			logViewer.removeAllRows();
 			logViewer.refresh();
 			
+			// Lose the ones we had before
+			adifHead = null;
+			adifTail = null;
+			
 			processFile(logViewer);
 			
 			logViewer.refresh();
@@ -87,6 +99,14 @@ public class ADIFparser {
 			return;
 		}
 		
+	}
+	
+	/**
+	 * Accessor for the colletion of ADIF records.
+	 * @return The the collection of ADIF records parsed from the file
+	 */
+	public ADIFrecord getAdifRecords() {
+		return adifHead;
 	}
 	
 	private void processFile(LogViewer logViewer) {
@@ -123,7 +143,7 @@ public class ADIFparser {
 				ADIFrecord r = new ADIFrecord(call, date, time, frequency, mode, rstSent, rstReceived, 
 							serialNumberSent, serialNumberReceived, exchangeSent, exchangeReceived);
 				logViewer.addQSO(r);
-				//qsos.add(r);
+				addADIF(r);
 					
 				// Reset everything back to empty strings so we can collect another
 				// record with a clean slate.
@@ -177,11 +197,17 @@ public class ADIFparser {
 				tok = getNextToken();
 				if (tok != null) {
 					time = new String(tok);
+					time = time.substring(0, 4);
 				}
 			} else if ((tok.length() >= 9) && (tok.substring(0, 9).equalsIgnoreCase("<QSO_DATE"))) {
 				tok = getNextToken();
 				if (tok != null) {
-					date = new String(tok);
+					String s = new String(tok);
+					if (s.length() > 7) {
+						date = new String(s.substring(0,4) + "-" + s.substring(4,6) + "-" + s.substring(6,8));
+					} else {
+						date = s; // This is probably wrong, but what can we do?
+					}
 				}
 			} else if ((tok.length() >= 9) && (tok.substring(0, 9).equalsIgnoreCase("<RST_SENT"))) {
 				tok = getNextToken();
@@ -281,6 +307,19 @@ public class ADIFparser {
 			} else {
 				lineIndex++;
 			}
+		}
+	}
+	
+	/*
+	 * Add this ADIF record to our collection
+	 */
+	private void addADIF(ADIFrecord r) {
+		if (adifHead == null) {
+			adifHead = r;
+			adifTail = r;
+		} else {
+			adifTail.setNext(r);
+			adifTail = r;
 		}
 	}
 }
