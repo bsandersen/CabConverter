@@ -39,7 +39,7 @@ public class CabFileNode {
 	 * @return The element value.
 	 */
 	public String value() {
-		if (elementType == "Text") {
+		if (elementType.compareTo("Text") == 0) {
 			return new String(elementValue);
 		} else {
 			return new String(elementType);

@@ -15,8 +15,6 @@ package com.bsandersen.CabConverter;
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
 public class CabrilloLine {
-	private PersonalData personalData = PersonalData.getInstance();
-	private ContestDetails contestDetails = ContestDetails.getInstance();
 	private CabFileNode lineDetailHead = null;
 	private CabFileNode lineDetailTail = null;
 	private CabrilloLine next = null;
@@ -50,6 +48,8 @@ public class CabrilloLine {
 	public String value() {
 		String s = "";
 		CabFileNode e = lineDetailHead;
+		PersonalData personalData = PersonalData.getInstance();
+		ContestDetails contestDetails = ContestDetails.getInstance();
 		
 		while (e != null) {
 			String type = e.getType();
@@ -57,44 +57,44 @@ public class CabrilloLine {
 			if (type.compareToIgnoreCase("Text") == 0) {
 				s = s.concat(e.value());
 			} else {
-				// This is a variable. We need to find out who has
-				// the best expansion
-				String expansion = " ";
-				
 				// See if the problem can be solved by looking in the
 				// personal data.
-				if (type.compareToIgnoreCase("key_Callsign") == 0) {
-					expansion = expansion.concat(personalData.getCallSign());
-				} else if (type.compareToIgnoreCase("key_Name") == 0) {
-					expansion = expansion.concat(personalData.getName());
-				} else if (type.compareToIgnoreCase("key_Address1") == 0) {
-					expansion = expansion.concat(personalData.getAddress1());
-				} else if (type.compareToIgnoreCase("key_Address2") == 0) {
-					expansion = expansion.concat(personalData.getAddress2());
-				} else if (type.compareToIgnoreCase("key_City") == 0) {
-					expansion = expansion.concat(personalData.getCity());
-				} else if (type.compareToIgnoreCase("key_State") == 0) {
-					expansion = expansion.concat(personalData.getProvince());
-				} else if (type.compareToIgnoreCase("key_Postal") == 0) {
-					expansion = expansion.concat(personalData.getPostalCode());
-				} else if (type.compareToIgnoreCase("key_Country") == 0) {
-					expansion = expansion.concat(personalData.getCountry());
-				} else if (type.compareToIgnoreCase("key_Email") == 0) {
-					expansion = expansion.concat(personalData.getEmail());
-				} else if (type.compareToIgnoreCase("key_IOTA") == 0) {
-					expansion = expansion.concat(personalData.getIotaDesignator());
-				} else if (type.compareToIgnoreCase("key_Island") == 0) {
-					expansion = expansion.concat(personalData.getIslandName());
-				} else if (type.compareToIgnoreCase("key_ARRLsection") == 0) {
-					expansion = expansion.concat(personalData.getArrlSection());
-				} else if (type.compareToIgnoreCase("key_Zone") == 0) {
-					expansion = expansion.concat(personalData.getCqZone());
-				} else if (type.compareToIgnoreCase("key_Club") == 0) {
-					expansion = expansion.concat(personalData.getClub());
+				if (type.compareToIgnoreCase(PersonalData.key_Callsign) == 0) {
+					s = s.concat(personalData.getCallSign());
+				} else if (type.compareToIgnoreCase(PersonalData.key_Name) == 0) {
+					s = s.concat(personalData.getName());
+				} else if (type.compareToIgnoreCase(PersonalData.key_Address1) == 0) {
+					s = s.concat(personalData.getAddress1());
+				} else if (type.compareToIgnoreCase(PersonalData.key_Address2) == 0) {
+					s = s.concat(personalData.getAddress2());
+				} else if (type.compareToIgnoreCase(PersonalData.key_City) == 0) {
+					s = s.concat(personalData.getCity());
+				} else if (type.compareToIgnoreCase(PersonalData.key_State) == 0) {
+					s = s.concat(personalData.getProvince());
+				} else if (type.compareToIgnoreCase(PersonalData.key_Postal) == 0) {
+					s = s.concat(personalData.getPostalCode());
+				} else if (type.compareToIgnoreCase(PersonalData.key_Country) == 0) {
+					s = s.concat(personalData.getCountry());
+				} else if (type.compareToIgnoreCase(PersonalData.key_Email) == 0) {
+					s = s.concat(personalData.getEmail());
+				} else if (type.compareToIgnoreCase(PersonalData.key_IOTA) == 0) {
+					s = s.concat(personalData.getIotaDesignator());
+				} else if (type.compareToIgnoreCase(PersonalData.key_Island) == 0) {
+					s = s.concat(personalData.getIslandName());
+				} else if (type.compareToIgnoreCase(PersonalData.key_ARRLsection) == 0) {
+					s = s.concat(personalData.getArrlSection());
+				} else if (type.compareToIgnoreCase(PersonalData.key_Zone) == 0) {
+					s = s.concat(personalData.getCqZone());
+				} else if (type.compareToIgnoreCase(PersonalData.key_Club) == 0) {
+					s = s.concat(personalData.getClub());
+					
+				} else if (type.compareToIgnoreCase("Version") == 0) {
+					// Special case "Version"
+					s = s.concat(Version.version);
 				} else {
 					// It wasn't in the personal data, check the contest
 					// specific data to see if there is a mapping.
-					expansion = expansion.concat(contestDetails.getExpandedValue(type));
+					s = s.concat(contestDetails.getExpandedValue(type));
 				}
 			} // not "Text"
 			e = e.getNext();

@@ -68,11 +68,11 @@ public class Contest {
 	 * is preserved between adding and retrieving the elements.
 	 */
 	public void addCabrilloLine(CabrilloLine line) {
-		if (cabHead != null) {
-			cabTail.setNext(line);
+		if (cabHead == null) {
+			cabHead = line;
 			cabTail = line;
 		} else {
-			cabHead = line;
+			cabTail.setNext(line);
 			cabTail = line;
 		}
 	}
@@ -81,12 +81,22 @@ public class Contest {
 	 * Returns the head of the list of UI elements.
 	 * Order is preserved between adding and retrieving 
 	 * the elements.
-	 * @return
+	 * @return the first element of the list.
 	 */
 	public UIElement getUIElements() {
 		return uiListHead;
 	}
 
+	/**
+	 * Returns the head of the list of Cabrillo Line elements.
+	 * Order is preserved between adding and retrieving.
+	 * 
+	 * @return The first element of the list.
+	 */
+	public CabrilloLine getCabrilloLineElements() {
+		return cabHead;
+	}
+	
 	/*
 	 * Setters and getters
 	 */

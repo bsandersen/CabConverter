@@ -47,7 +47,7 @@ public class PersonalData extends JScrollPane {
 	public static final String key_Address2 = "Address2";
 	public static final String key_City = "City"; 
 	public static final String key_State = "State";
-	public static final String key_Postal = "Postal";
+	public static final String key_Postal = "PostalCode";
 	public static final String key_Country = "Country";
 	public static final String key_Email = "Email";
 	public static final String key_IOTA = "IOTA";

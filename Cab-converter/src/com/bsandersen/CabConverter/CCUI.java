@@ -108,6 +108,7 @@ public class CCUI extends JFrame {
 		
 		openItem.addActionListener(new OpenAdifItemListener());
 		saveItem.addActionListener(new SavePreferencesListener());
+		generateItem.addActionListener(new GenerateCabrilloListener());
 		quitItem.addActionListener(new quitListener());
 		
 		JMenuBar menuBar = new JMenuBar();

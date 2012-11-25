@@ -43,6 +43,7 @@ public class ContestDetails extends JScrollPane {
 	
 	private final String selectorName = "CabConverter-selector-box";
 	private static ContestDetails us;
+	private Contest currentContest = null;
 	
 	/**
 	 * Ths class is a Singleton. Here is the get instance method.
@@ -50,6 +51,15 @@ public class ContestDetails extends JScrollPane {
 	 */
 	public static ContestDetails getInstance() {
 		return us;
+	}
+	
+	/**
+	 * Obtain the current contest.
+	 * 
+	 * @return The currently selected contest in the UI
+	 */
+	public Contest getCurrentContest() {
+		return currentContest;
 	}
 	
 	/**
@@ -125,12 +135,14 @@ public class ContestDetails extends JScrollPane {
 	 */
 	private void buildUI() {
 		XMLparser xml = XMLparser.getInstance();
+		currentContest = null;
+		
 		if (xml == null) 
 			return;
 		
-		Contest c = xml.findContestByName(ContestDetails.selectionMade);
+		currentContest = xml.findContestByName(ContestDetails.selectionMade);
 		
-		if (c != null) {
+		if (currentContest != null) {
 			int y = 70;
 			int x = 10;
 			int yHeight = 30;
@@ -139,7 +151,7 @@ public class ContestDetails extends JScrollPane {
 			int xWidthTextFields = 200;
 			int xWidthComboBoxes = 200;
 			
-			UIElement e =  c.getUIElements();
+			UIElement e =  currentContest.getUIElements();
 			while (e != null) {
 				UIElement.ElementType type = e.getType();
 				String prompt = e.getPrompt();
