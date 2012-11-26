@@ -78,11 +78,24 @@ public class CabrilloQSO {
 						(r.mode.compareToIgnoreCase("USB") == 0) ||
 						(r.mode.compareToIgnoreCase("LSB") == 0)) {
 						s = s.concat("PH ");
+					} else if (r.mode.compareTo("AM") == 0) {
+						s = s.concat("AM ");
+					} else if (r.mode.compareTo("FM") == 0) {
+						s = s.concat("FM ");
 					} else if ((r.mode.compareToIgnoreCase("CW") == 0) ||
 							   (r.mode.compareToIgnoreCase("CWR") == 0)) {
 						s = s.concat("CW ");
+					} else if (r.mode.compareTo("DV") == 0) {
+						s = s.concat("DV ");
+					} if ((r.mode.compareToIgnoreCase("PSK") == 0) ||
+						  (r.mode.compareToIgnoreCase("FSK") == 0) ||
+						  (r.mode.compareToIgnoreCase("FSK-R") == 0)) {
+						s = s.concat("PH ");
+					} else if ((r.mode.compareToIgnoreCase("RTTY") == 0) ||
+							   (r.mode.compareToIgnoreCase("RTTY-R") == 0)) {
+						s = s.concat("RT ");
 					} else {
-						s = s.concat("TY ");
+						s = s.concat("?? ");
 					}
 				} else if (key.compareToIgnoreCase("RSTs") == 0) {
 					s = s.concat(r.rstSent + " ");
