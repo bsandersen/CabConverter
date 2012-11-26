@@ -6,9 +6,13 @@
 package com.bsandersen.CabConverter;
 
 import java.awt.Container;
-import java.awt.event.*;
-
-import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JSplitPane;
 
 /**
  * The CCUI class is the parent class to the user interface for CabConverter.
@@ -98,18 +102,15 @@ public class CCUI extends JFrame {
 		saveItem.setMnemonic('S');
 		JMenuItem generateItem = new JMenuItem("Generate Cabrillo File...");
 		generateItem.setMnemonic('G');
-		JMenuItem quitItem = new JMenuItem("Quit");
 		
 		JMenu fileMenu = new JMenu("File");
 		fileMenu.add(openItem);
 		fileMenu.add(saveItem);
 		fileMenu.add(generateItem);
-		fileMenu.add(quitItem);
 		
 		openItem.addActionListener(new OpenAdifItemListener());
 		saveItem.addActionListener(new SavePreferencesListener());
 		generateItem.addActionListener(new GenerateCabrilloListener());
-		quitItem.addActionListener(new quitListener());
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.add(fileMenu);
@@ -125,22 +126,6 @@ public class CCUI extends JFrame {
 		  public void windowClosing(WindowEvent event) {
 			    System.exit(0);
 			  }
-	}
-	
-	/**
-	 * If the user quits, exit.
-	 * @author B. Scott Andersen
-	 * 
-	 */
-	private class quitListener implements ActionListener {
-		
-		/**
-		 * This is the method that gets invoked when File->Open is selected.
-		 */
-		public void actionPerformed(ActionEvent e) {
-			System.exit(0);
-		}
-
 	}
 
 } // End Package

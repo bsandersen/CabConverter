@@ -17,6 +17,10 @@ public class CabConverter {
 	 * @param args Arguments from the command line. Unused for this application.
 	 */
 	public static void main(String[] args) {
+		// Move the menu up to the Macintosh menu bar.
+		@SuppressWarnings("unused")
+		String s = System.setProperty("apple.laf.useScreenMenuBar", "true");
+		
 		@SuppressWarnings("unused")
 		CCUI mainWindow = new CCUI();
 	}
