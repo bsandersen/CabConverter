@@ -44,7 +44,7 @@ public class CCUI extends JFrame {
 	 * constructed from within the main() method.
 	 */
 	public CCUI() {
-		super("CabConverter");
+		super(Version.version);
 		ui = this;
 		
 		/*
