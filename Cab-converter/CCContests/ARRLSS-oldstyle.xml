@@ -1,0 +1,91 @@
+<Contest name="ARRL Sweepstakes (Old)" sponsor="ARRL" shortName="ARRL-SS">
+	<UI>
+		<TestName prompt="Contest: " type="list">
+			<Item>ARRL-SS-CW</Item>
+			<Item>ARRL-SS-SSB</Item>
+		</TestName>
+	
+		<CategoryOperator prompt="Category operator:" type="list">
+			<Item>SINGLE-OP</Item>
+			<Item>MULTI-OP</Item>
+			<Item>CHECKLOG</Item>
+		</CategoryOperator>
+	
+		<CategoryAssisted prompt="Category assisted:" type="list">
+			<Item>ASSISTED</Item>
+			<Item>NON-ASSISTED</Item>
+		</CategoryAssisted>
+	
+		<CategoryMode prompt="Category mode:" type="list">
+			<Item>CW</Item>
+			<Item>SSB</Item>
+		</CategoryMode>
+	
+		<CategoryBand prompt="Category band:" type="list">
+			<Item>ALL</Item>
+			<Item>160M</Item>
+			<Item>80M</Item>
+			<Item>40M</Item>
+			<Item>20M</Item>
+			<Item>15M</Item>
+			<Item>10M</Item>
+		</CategoryBand>
+		
+		<CategoryPower prompt="Category power:" type="list">
+			<Item>HIGH</Item>
+			<Item>LOW</Item>
+			<Item>QRP</Item>
+		</CategoryPower>
+	
+		<CategoryTransmitter prompt="Category transmitter:" type="list">
+			<Item>ONE</Item>
+			<Item>TWO</Item>
+		</CategoryTransmitter>
+	
+		<CategoryStation prompt="Station:" type="list">
+			<Item>FIXED</Item>
+			<Item>MOBILE</Item>
+			<Item>SCHOOL</Item>
+		</CategoryStation>
+		
+		<Operators prompt="Operators:" type="text"/>
+	</UI>
+			
+	<Cabrillo>
+		<Line><Text>START-OF-LOG: 3.0</Text></Line>
+		<Line><Text>LOCATION: </Text><ARRLSection/></Line>
+		<Line><Text>CALLSIGN: </Text><Callsign/></Line>
+		<Line><Text>CONTEST: </Text><TestName/></Line>
+		<Line><Text>CLUB: </Text><Club/></Line>
+		<Line><Text>CATEGORY-OPERATOR: </Text><CategoryOperator/></Line>
+		<Line><Text>CATEGORY-ASSISTED: </Text><CategoryAssisted/></Line>
+		<Line><Text>CATEGORY-BAND: </Text><CategoryBand/></Line>
+		<Line><Text>CATEGORY-POWER: </Text><CategoryPower/></Line>
+		<Line><Text>CATEGORY-MODE: </Text><CategoryMode/></Line>
+		<Line><Text>CATEGORY-STATION: </Text><CategoryStation/></Line>
+		<Line><Text>CATEGORY-TRANSMITTER: </Text><CategoryTransmitter/></Line>		
+		<Line><Text>OPERATORS: </Text><Operators/></Line>
+		<Line><Text>Name: </Text><Name/></Line>
+		<Line><Text>ADDRESS: </Text><Address1/></Line>
+		<Line><Text>ADDRESS: </Text><Address2/></Line>
+		<Line><Text>ADDRESS-CITY: </Text><City/></Line>
+		<Line><Text>ADDRESS-STATE: </Text><State/></Line>
+		<Line><Text>ADDRESS-POSTALCODE: </Text><PostalCode/></Line>
+		<Line><Text>ADDRESS-COUNTRY: </Text><Country/></Line>			
+		<Line><Text>CREATED-BY: </Text><Version/></Line>
+		<QSO>
+			<Text>QSO:</Text>
+			<Frequency/>
+			<Mode/>
+			<Date/>
+			<Time/>
+			<Callsign/>
+			<STXn/>
+			<STX-ARRL-SS-NOCALL/>
+			<TheirCallsign/>
+			<SRXn/>
+			<SRX-ARRL-SS-NOCALL/>
+		</QSO>
+		<Line><Text>END-OF-LOG:</Text></Line>
+	</Cabrillo>
+</Contest>

@@ -1,0 +1,52 @@
+<Contest name="North American QSO PARTY" sponsor="ARRL" shortName="NAQP">
+	<UI>
+		<TestName prompt="Contest: " type="list">
+			<Item>NAQP-CW</Item>
+			<Item>NAQP-RTTY</Item>
+			<Item>NAQP-SSB</Item>
+		</TestName>
+	
+		<CategoryOperator prompt="Category operator:" type="list">
+			<Item>SINGLE-OP</Item>
+			<Item>MULTI-OP</Item>
+		</CategoryOperator>
+		
+		<CategoryPower prompt="Category power:" type="list">
+			<Item>LOW</Item>
+			<Item>QRP</Item>
+		</CategoryPower>
+
+		<Operators prompt="Operators:" type="text"/>
+	</UI>
+			
+	<Cabrillo>
+		<Line><Text>START-OF-LOG: 2.0</Text></Line>
+		<Line><Text>ARRL-SECTION: </Text><ARRLsection/></Line>
+		<Line><Text>CALLSIGN: </Text><Callsign/></Line>
+		<Line><Text>CATEGORY: </Text><CategoryOperator/><Text> ALL </Text><CategoryPower/></Line>
+		<Line><Text>CLUB: </Text><Club/></Line>
+		<Line><Text>CONTEST: </Text><TestName/></Line>		
+		<Line><Text>CREATED-BY: </Text><Version/></Line>		
+		<Line><Text>Name: </Text><Name/></Line>
+		<Line><Text>ADDRESS: </Text><Address1/></Line>
+		<Line><Text>ADDRESS: </Text><Address2/></Line>
+		<Line><Text>ADDRESS: </Text><City/></Line>
+		<Line><Text>ADDRESS: </Text><State/></Line>
+		<Line><Text>ADDRESS: </Text><PostalCode/></Line>
+		<Line><Text>ADDRESS: </Text><Country/></Line>					
+		<Line><Text>ADDRESS: </Text><Email/></Line>		
+		<Line><Text>OPERATORS: </Text><Operators/></Line>				
+		<QSO>
+			<Text>QSO:</Text>
+			<Frequency/>
+			<Mode/>
+			<Date/>
+			<Time/>
+			<Callsign/>
+			<STX/>
+			<TheirCallsign/>
+			<SRX/>
+		</QSO>
+		<Line><Text>END-OF-LOG:</Text></Line>
+	</Cabrillo>
+</Contest>
