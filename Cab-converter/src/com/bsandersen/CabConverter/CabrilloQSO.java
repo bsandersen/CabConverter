@@ -87,7 +87,7 @@ public class CabrilloQSO {
 						s = s.concat("CW ");
 					} else if (r.mode.compareTo("DV") == 0) {
 						s = s.concat("DV ");
-					} if ((r.mode.compareToIgnoreCase("PSK") == 0) ||
+					} else if ((r.mode.compareToIgnoreCase("PSK") == 0) ||
 						  (r.mode.compareToIgnoreCase("FSK") == 0) ||
 						  (r.mode.compareToIgnoreCase("FSK-R") == 0)) {
 						s = s.concat("PH ");
