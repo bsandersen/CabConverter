@@ -118,11 +118,9 @@ public class Contest {
 	public void setShortName(String shortName) {
 		this.shortName = new String(shortName);
 	}
-
 	public CabrilloQSO getQso() {
 		return qso;
 	}
-
 	public void setQso(CabrilloQSO qso) {
 		this.qso = qso;
 	}

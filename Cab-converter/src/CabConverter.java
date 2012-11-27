@@ -1,5 +1,6 @@
 /**
- * 
+ * CabConverter: A Cabrillo generation tool for MacLoggerDX
+ * Original concept and author: B. Scott Andersen (NE1RD)
  */
 import com.bsandersen.CabConverter.CCUI;
 
@@ -14,6 +15,7 @@ import com.bsandersen.CabConverter.CCUI;
 public class CabConverter {
 
 	/**
+	 * Main entry point to the program.
 	 * @param args Arguments from the command line. Unused for this application.
 	 */
 	public static void main(String[] args) {

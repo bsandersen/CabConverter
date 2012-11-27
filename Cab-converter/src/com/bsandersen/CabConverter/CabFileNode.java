@@ -54,11 +54,19 @@ public class CabFileNode {
 		return new String(elementType);
 	}
 	
+	/**
+	 * Setter for the next element
+	 * @param n The next CabFileNode to chain.
+	 */
 	public void setNext(CabFileNode n) {
 		next = n;
 	}
+	
+	/**
+	 * Getter for the next element.
+	 * @return The next element in this list.
+	 */
 	public CabFileNode getNext() {
 		return next;
 	}
-
 }

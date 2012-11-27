@@ -41,12 +41,26 @@ public class ContestDetails extends JScrollPane {
 	 */
 	protected static String selectionMade = "";
 	
+	// We need to have a name that we can associate with the contest
+	// selection ComboBox that will be unique among all the possible
+	// names contest XML designers might use for their UI controls.
+	// This one seems long enough, and tedious enough, that nobody
+	// will use it. 
+	// We need to know which UI element is ours (the contest list)
+	// because we delete EVERYTHING ELSE when we change contests.
+	// We don't want to delete the list, too!
+	// [Well, we could, and rebuild it every time, but that seems
+	// wasteful.]
 	private final String selectorName = "CabConverter-selector-box";
+	
+	// Singleton support
 	private static ContestDetails us;
+	
+	// Pointer to the contest currently selected.
 	private Contest currentContest = null;
 	
 	/**
-	 * Ths class is a Singleton. Here is the get instance method.
+	 * This class is a Singleton. Here is the get instance method.
 	 * @return A reference to this instance of the singleton.
 	 */
 	public static ContestDetails getInstance() {
@@ -55,7 +69,6 @@ public class ContestDetails extends JScrollPane {
 	
 	/**
 	 * Obtain the current contest.
-	 * 
 	 * @return The currently selected contest in the UI
 	 */
 	public Contest getCurrentContest() {
@@ -75,6 +88,10 @@ public class ContestDetails extends JScrollPane {
 		contestList.setName(selectorName);
 		add(contestList);
 		
+		// Populate the contest selection ComboBox
+		// Note that only successfully parsed XML files live long
+		// enough to be included in the contest list, and show up
+		// in the ComboBox.
 		contestList.addActionListener(new SelectionMadeListener());
 		contestList.addItem("Select contest");
 		for (int i = 0; i < contestCount; i++) {
@@ -109,14 +126,18 @@ public class ContestDetails extends JScrollPane {
 					break;
 				} else {
 					// ERROR!
+					// The user has asked to expand a value for a component
+					// that isn't here. We could complain, but this should 
+					// have been debugged long before a user saw it. 
+					// Throw the error on the floor.
 				}
 			} // if name matches key
 		} // for all components
 		
 		return s;
-	}
+	} // getExpandedValue
 
-	/**
+	/*
 	 * ComboBox change listener
 	 */
 	private class SelectionMadeListener implements ActionListener {
@@ -205,8 +226,7 @@ public class ContestDetails extends JScrollPane {
 				
 				// We will remove any other text fields and combo boxes
 				us.remove(c);
-			}
-		}
+			} // if
+		} // for
 	} // disposeUI()
-
-}
+} // ContestDetails

@@ -43,7 +43,6 @@ public class GenerateCabrilloListener implements ActionListener {
 	/*
 	 * Create a Cabrillo file using the ADIF, Personal Data, and Contest
 	 * specific data. The recipe is in the XML file.
-	 * 
 	 * @param The file to pour our Cabrillo data into
 	 */
 	private void generate(File f) throws Exception {
@@ -78,5 +77,4 @@ public class GenerateCabrilloListener implements ActionListener {
 		}
 		cabFile.close();
 	} // generate
-
-}
+} // GenerateCabrilloListener

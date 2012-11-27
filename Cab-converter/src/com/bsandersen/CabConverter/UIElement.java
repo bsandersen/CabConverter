@@ -77,6 +77,7 @@ public class UIElement {
 		}
 	}
 	
+	// Getters and setters
 	public String getPrompt() {
 		return new String(prompt);
 	}
@@ -89,19 +90,15 @@ public class UIElement {
 	public void setType(ElementType type) {
 		this.type = type;
 	}
-
 	public UIElement getNext() {
 		return next;
 	}
-
 	public void setNext(UIElement next) {
 		this.next = next;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}

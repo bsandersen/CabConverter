@@ -12,7 +12,6 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  * This class provides a means of viewing the contents of an imported ADIF file.
- * 
  * @author B. Scott Andersen
  *
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
@@ -82,7 +81,6 @@ public class LogViewer extends JScrollPane {
 	
 	/**
 	 * LogTable is a table model used to manage the log display area.
-	 * 
 	 * @author B. Scott Andersen
 	 */
 	private class LogTable extends AbstractTableModel {
@@ -217,7 +215,6 @@ public class LogViewer extends JScrollPane {
 				throw new RuntimeException("Too many QSOs. Increase QSO table size in program.");
 			}
 			f.close();
-		}
-	}
-	
-}
+		} // addQSO
+	} // LogTable
+} // LogViewer

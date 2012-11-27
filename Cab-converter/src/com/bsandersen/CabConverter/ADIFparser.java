@@ -57,8 +57,6 @@ public class ADIFparser {
 	
 	/**
 	 * Constructor
-	 * 
-	 * 
 	 */
 	public ADIFparser() {
 		me = this;
@@ -109,6 +107,13 @@ public class ADIFparser {
 		return adifHead;
 	}
 	
+	/*
+	 * An open file and tokenizer are active. This method walks through
+	 * the tokens, collecting the information from each record in the 
+	 * file, and updates the UI and collection of ADIF records as it
+	 * goes.
+	 * @param logViewer Reference to the log viewer pane UI element.
+	 */
 	private void processFile(LogViewer logViewer) {
 		String tok;
 		line = "";
@@ -306,9 +311,9 @@ public class ADIFparser {
 				}
 			} else {
 				lineIndex++;
-			}
-		}
-	}
+			} // else
+		} // while
+	} // parseLine
 	
 	/*
 	 * Add this ADIF record to our collection

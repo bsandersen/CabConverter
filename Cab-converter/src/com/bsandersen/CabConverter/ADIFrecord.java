@@ -28,7 +28,7 @@ public class ADIFrecord {
 	int			serialNumberReceived;	// Serial number sent (-1 if not present)
 	String		exchangeSent;			// String part of the exchange, if any
 	String		exchangeReceived;		// String part of the exchange, if any
-	private ADIFrecord	next;					// The next ADIF record in this collection
+	private ADIFrecord	next;			// The next ADIF record in this collection
 	
 	/**
 	 * Default constructor
@@ -82,9 +82,17 @@ public class ADIFrecord {
 		exchangeReceived = pexchangeReceived;
 	}
 	
+	/**
+	 * Setter method for these objects.
+	 * @param next Reference to the next object of this type. Use for chaining.
+	 */
 	public void setNext(ADIFrecord next) {
 		this.next = next;
 	}
+	/**
+	 * Getter method for these objects. Gets the next in the chain.
+	 * @return The next ADIF record.
+	 */
 	public ADIFrecord getNext() {
 		return next;
 	}
@@ -94,8 +102,7 @@ public class ADIFrecord {
 	 * Java int. If we get an empty string or something nonsensical,
 	 * return -1.
 	 * 
-	 * Parameters:
-	 * pSerial = the serial number to convert.
+	 * @param pSerial the serial number to convert.
 	 */
 	private int convertSerial(String pSerial) {
 		if (pSerial.length() == 0) {
@@ -114,8 +121,7 @@ public class ADIFrecord {
 	 * Convert the frequency passed as a string from the raw ADIF file into
 	 * a Java Double. If we get an illegal frequency, return zero.
 	 * 
-	 * Parameters:
-	 * pFrequency - the frequency to convert.
+	 * @param pFrequency The frequency to convert.
 	 */
 	private Double convertFrequency(String pFrequency) {
 		if (pFrequency.length() == 0) {

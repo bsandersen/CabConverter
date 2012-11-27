@@ -19,6 +19,12 @@ public class CabrilloLine {
 	private CabFileNode lineDetailTail = null;
 	private CabrilloLine next = null;
 	
+	/*
+	 * iQsoPlaceholder is used to mark a point in the report file where
+	 * QSO information is to be expanded. The element is one of these
+	 * (a <CabrilloLine>) but we will substitute the CabrilloQSO logic
+	 * and data when we see one of us marked with isQsoPlaceholder true.
+	 */
 	private boolean isQsoPlaceholder = false;
 	
 	/**
@@ -43,7 +49,7 @@ public class CabrilloLine {
 	 * This method will produce the expanded string value for the 
 	 * line using the details from the XML file and the values from
 	 * the various elements of the UI.
-	 * @return
+	 * @return The rendered line after expansion of keywords.
 	 */
 	public String value() {
 		String s = "";

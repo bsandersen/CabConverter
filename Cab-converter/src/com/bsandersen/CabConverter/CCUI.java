@@ -118,14 +118,13 @@ public class CCUI extends JFrame {
 	}
 	
 	/**
-	 * This class contains a single listener tha watches for the window close event.
+	 * This class contains a single listener that watches for the window close event.
 	 * @author B. Scott Andersen
-	 *
 	 */
 	private class ExitListener extends WindowAdapter {
-		  public void windowClosing(WindowEvent event) {
-			    System.exit(0);
-			  }
+		public void windowClosing(WindowEvent event) {
+			System.exit(0);
+		}
 	}
 
 } // End Package
