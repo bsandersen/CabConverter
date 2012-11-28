@@ -65,7 +65,7 @@
 		<Line><Text>CATEGORY-STATION: </Text><CategoryStation/></Line>
 		<Line><Text>CATEGORY-TRANSMITTER: </Text><CategoryTransmitter/></Line>		
 		<Line><Text>OPERATORS: </Text><Operators/></Line>
-		<Line><Text>Name: </Text><Name/></Line>
+		<Line><Text>NAME: </Text><Name/></Line>
 		<Line><Text>ADDRESS: </Text><Address1/></Line>
 		<Line><Text>ADDRESS: </Text><Address2/></Line>
 		<Line><Text>ADDRESS-CITY: </Text><City/></Line>
