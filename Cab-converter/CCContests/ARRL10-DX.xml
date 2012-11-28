@@ -1,0 +1,63 @@
+<Contest name="ARRL 10m (DX entry)" sponsor="ARRL" shortName="ARRL-10">
+	<UI>	
+		<CategoryOperator prompt="Category operator:" type="list">
+			<Item>SINGLE-OP</Item>
+			<Item>MULTI-OP</Item>
+		</CategoryOperator>
+	
+		<CategoryAssisted prompt="Category assisted:" type="list">
+			<Item>ASSISTED</Item>
+			<Item>NON-ASSISTED</Item>
+		</CategoryAssisted>
+	
+		<CategoryMode prompt="Category mode:" type="list">
+			<Item>CW</Item>
+			<Item>SSB</Item>
+			<Item>Mixed</Item>
+		</CategoryMode>
+		
+		<CategoryPower prompt="Category power:" type="list">
+			<Item>HIGH</Item>
+			<Item>LOW</Item>
+			<Item>QRP</Item>
+		</CategoryPower>
+		
+		<Operators prompt="Operators:" type="text"/>
+	</UI>
+			
+	<Cabrillo>
+		<Line><Text>START-OF-LOG: 3.0</Text></Line>
+		<Line><Text>LOCATION: DX</Text></Line>
+		<Line><Text>CONTEST: ARRL-10</Text></Line>
+		<Line><Text>CALLSIGN: </Text><Callsign/></Line>
+		<Line><Text>CATEGORY-OPERATOR: </Text><CategoryOperator/></Line>
+		<Line><Text>CATEGORY-POWER: </Text><CategoryPower/></Line>
+		<Line><Text>CATEGORY-MODE: </Text><CategoryMode/></Line>
+		<Line><Text>CATEGORY-ASSISTED: </Text><CategoryAssisted/></Line>
+		<Line><Text>CATEGORY-TRANSMITTER: ONE</Text></Line>		
+		<Line><Text>OPERATORS: </Text><Operators/></Line>
+		<Line><Text>CLUB: </Text><Club/></Line>
+		<Line><Text>Name: </Text><Name/></Line>
+		<Line><Text>ADDRESS: </Text><Address1/></Line>
+		<Line><Text>ADDRESS: </Text><Address2/></Line>
+		<Line><Text>ADDRESS-CITY: </Text><City/></Line>
+		<Line><Text>ADDRESS-STATE: </Text><State/></Line>
+		<Line><Text>ADDRESS-POSTALCODE: </Text><PostalCode/></Line>
+		<Line><Text>ADDRESS-COUNTRY: </Text><Country/></Line>			
+		<Line><Text>CREATED-BY: </Text><Version/></Line>
+		<QSO>
+			<Text>QSO:</Text>
+			<Frequency/>
+			<Mode/>
+			<Date/>
+			<Time/>
+			<Callsign/>
+			<RSTs/>
+			<STXn/>
+			<TheirCallsign/>
+			<RSTr/>
+			<SRX/>
+		</QSO>
+		<Line><Text>END-OF-LOG:</Text></Line>
+	</Cabrillo>
+</Contest>
