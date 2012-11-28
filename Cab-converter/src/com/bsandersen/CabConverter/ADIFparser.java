@@ -204,6 +204,12 @@ public class ADIFparser {
 					time = new String(tok);
 					time = time.substring(0, 4);
 				}
+			} else if ((tok.length() >= 9) && (tok.substring(0, 9).equalsIgnoreCase("<TIME_OFF"))) {
+				tok = getNextToken();
+				if (tok != null) {
+					time = new String(tok);
+					time = time.substring(0, 4);
+				}
 			} else if ((tok.length() >= 9) && (tok.substring(0, 9).equalsIgnoreCase("<QSO_DATE"))) {
 				tok = getNextToken();
 				if (tok != null) {

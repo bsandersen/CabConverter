@@ -198,14 +198,14 @@ public class LogViewer extends JScrollPane {
 				data[rows][COL_RSTR] = new String(rec.rstReceived);
 				data[rows][COL_RSTS] = new String(rec.rstSent);
 				if (rec.serialNumberSent >= 0) {
-					data[rows][COL_SERR] = new String(new Integer(rec.serialNumberSent).toString());
-				} else {
-					data[rows][COL_SERR] = new String("");
-				}
-				if (rec.serialNumberReceived >= 0) {
-					data[rows][COL_SERS] = new String(new Integer(rec.serialNumberReceived).toString());
+					data[rows][COL_SERS] = new String(new Integer(rec.serialNumberSent).toString());
 				} else {
 					data[rows][COL_SERS] = new String("");
+				}
+				if (rec.serialNumberReceived >= 0) {
+					data[rows][COL_SERR] = new String(new Integer(rec.serialNumberReceived).toString());
+				} else {
+					data[rows][COL_SERR] = new String("");
 				}
 				data[rows][COL_EXCR] = new String(rec.exchangeReceived);
 				data[rows][COL_EXCS] = new String(rec.exchangeSent);
