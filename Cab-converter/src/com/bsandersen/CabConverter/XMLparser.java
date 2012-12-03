@@ -62,10 +62,14 @@ public class XMLparser {
 		} else {
 			for(int i = 0; i < contests.length; i++) {
 	    		File contestFile = new File(CCContestsDirectory, contests[i]);
-	    		Contest test = XMLreader(contestFile);
 	    		
-	    		if (test != null) {
-	    			allTests[contestCount++] = test;
+	    		// Process only XML files.
+		    	if (contestFile.getName().contains(".xml"))	{  		
+		    		Contest test = XMLreader(contestFile);
+		    		
+		    		if (test != null) {
+		    			allTests[contestCount++] = test;
+		    		}
 	    		}
 	    	}
 	    }
