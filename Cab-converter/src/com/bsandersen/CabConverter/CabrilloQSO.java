@@ -115,22 +115,6 @@ public class CabrilloQSO {
 					s = s.concat(r.exchangeSent + " ");
 				} else if (key.compareToIgnoreCase("SRX") == 0) {
 					s = s.concat(r.exchangeReceived + " ");
-				} else if (key.compareToIgnoreCase("STX-ARRL-SS-NOCALL") == 0) {
-					String goof;
-					String temp = r.exchangeSent;
-					goof = new String(temp.substring(0,1) + " ");
-					temp = temp.substring(2);
-					int space = temp.indexOf(' ');
-					goof = goof.concat(temp.substring(space+1));
-					s = s.concat(goof + " ");
-				} else if (key.compareToIgnoreCase("SRX-ARRL-SS-NOCALL") == 0) {
-					String goof;
-					String temp = r.exchangeReceived;
-					goof = new String(temp.substring(0,1) + " ");
-					temp = temp.substring(2);
-					int space = temp.indexOf(' ');
-					goof = goof.concat(temp.substring(space+1));
-					s = s.concat(goof + " ");
 				} else {
 					s = s.concat(key + " ");
 			}
