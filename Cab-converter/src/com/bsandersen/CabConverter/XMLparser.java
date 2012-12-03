@@ -64,7 +64,7 @@ public class XMLparser {
 	    		File contestFile = new File(CCContestsDirectory, contests[i]);
 	    		
 	    		// Process only XML files.
-		    	if (contestFile.getName().contains(".xml"))	{  		
+		    	if (contestFile.getName().toLowerCase().contains(".xml"))	{
 		    		Contest test = XMLreader(contestFile);
 		    		
 		    		if (test != null) {
