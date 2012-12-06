@@ -97,6 +97,35 @@ public class ContestDetails extends JScrollPane {
 		for (int i = 0; i < contestCount; i++) {
 			contestList.addItem(contests[i].getName());
 		}
+		
+		// Here we can tell the user that they probably didn't
+		// install the CCContest directory in the correct spot.
+		// They should go read the "readme.txt" file!
+		if (contestCount == 0) {
+			int y = 70;
+			int x = 10;
+			int ySpacing = 17;
+			int xSpacing = 200;
+			
+			JLabel goof1 = new JLabel("No contests found.");
+			goof1.setBounds(x, y, xSpacing, ySpacing);
+		    us.add(goof1);
+		    
+		    y+= ySpacing;
+			JLabel goof2 = new JLabel("Read the README.rtf file");
+			goof2.setBounds(x, y, xSpacing, ySpacing);
+		    us.add(goof2);
+		    
+		    y+= ySpacing;
+			JLabel goof3 = new JLabel("in the Documentation folder");
+			goof3.setBounds(x, y, xSpacing, ySpacing);
+		    us.add(goof3);
+		    
+		    y+= ySpacing;
+			JLabel goof4 = new JLabel("and restart this program.");
+			goof4.setBounds(x, y, xSpacing, ySpacing);
+		    us.add(goof4);
+		}
 
 		setVisible(true);
 	}

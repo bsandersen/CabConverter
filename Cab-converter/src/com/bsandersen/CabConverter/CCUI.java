@@ -13,6 +13,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSplitPane;
+//import com.apple.eawt.Application;
+//import java.util.EventObject;
 
 /**
  * The CCUI class is the parent class to the user interface for CabConverter.
@@ -32,6 +34,7 @@ public class CCUI extends JFrame {
 	static final long serialVersionUID = 0;
 	
 	public static JFrame ui = null;
+	//private static Application macApplication = null;
 	
 	@SuppressWarnings("unused")
 	private ADIFparser adifParser = new ADIFparser();
@@ -115,6 +118,14 @@ public class CCUI extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.add(fileMenu);
 		setJMenuBar(menuBar);
+		
+		// Eclipse doesn't have all the Apple libraries so
+		// we'd need to fish those out before we could make this
+		// fix... but here's how to override the default About item:
+		//
+		// macApplication = Application.get_application();
+		// macApplication.setAboutHandler(new CabAboutHandler());
+		
 	}
 	
 	/**
@@ -125,6 +136,20 @@ public class CCUI extends JFrame {
 		public void windowClosing(WindowEvent event) {
 			System.exit(0);
 		}
+		
+	// Here we would put the subclass of AboutHandler for the 
+	// setAboutHandler() call. The subclass would look like this:
+	/*
+	 * private class CabAboutHandler extends AboutHandler {
+	 * 		// We use EventObject here instead of the Apple-specific
+	 * 		// one since we are going to ignore the contents anyway.
+	 *		// Why drag in more Apple-specific stuff?
+	 * 		public void handleAbout(EventObject e) {
+	 * 			// Create a modal pop-up window with the 
+	 * 			// "About" information.
+	 * 		}
+	 * }
+	 */
 	}
 
 } // End Package

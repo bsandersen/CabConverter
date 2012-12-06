@@ -95,7 +95,7 @@ public class CabrilloQSO {
 							   (r.mode.compareToIgnoreCase("RTTY-R") == 0)) {
 						s = s.concat("RT ");
 					} else {
-						s = s.concat("?? ");
+						s = s.concat(r.mode);
 					}
 				} else if (key.compareToIgnoreCase("RSTs") == 0) {
 					s = s.concat(r.rstSent + " ");

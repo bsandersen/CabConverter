@@ -5,7 +5,7 @@
 \red255\green39\blue18;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
 {\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
-\margl1440\margr1440\vieww12040\viewh25560\viewkind0
+\margl1440\margr1440\vieww12040\viewh16300\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 
 \f0\fs48 \cf2 Composing contest recipes
@@ -19,8 +19,9 @@
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 \cf0 \
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b\fs28 Introduction to CabConverter XML Contest Composition
+\b\fs28 \cf0 Introduction to CabConverter XML Contest Composition
 \b0\fs24 \
 CabConverter 2 is a program that converts a radio log file exported from MacLoggerDX (by Dog Park Software) into a format popular with radio contest sponsors called 
 \i Cabrillo
@@ -43,10 +44,12 @@ The steps for users of CabConverter are simple:\
 \cf0 \
 CabConverter 2 can be configured to support many different contests. Composing a "recipe" for a contest is not difficult. Contests are described in specially formatted XML files. This document will describe how to format an XML properly to support a contest.\
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b\fs28 Introduction to XML\
+\b\fs28 \cf0 Introduction to XML\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b0\fs24 XML is short for "eXtensible Markup Language", a way of annotating information. HTML, the format used for web pages, is related to XML. The general idea is there are elements, attributes, and data used to describe something. In this case a contest is described. Below is an outline for a CabConverter 2 contest XML file.\
+\b0\fs24 \cf0 XML is short for "eXtensible Markup Language", a way of annotating information. HTML, the format used for web pages, is related to XML. The general idea is there are elements, attributes, and data used to describe something. In this case a contest is described. Below is an outline for a CabConverter 2 contest XML file.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
@@ -92,19 +95,20 @@ Note the use of the "<" and ">" characters. Things enclosed within those angle b
 \
 Elements are bounded. That is, they have a start and stop. An element has a start like this <X> and it stops like this </X>. Note that <Contest>, <UI>, and <Cabrillo> all have these starts and stops. There is a shortcut if you only have one element with no children. You can write it like this <Simple/> with a stroke character just before the closing angle bracket. Find <Callsign/> above to see an example.\
 \
-If an element appears between other element's start and stops then it is a child element. For example, <UI> is a child of <Contest>. This nesting implies ownership and a parent-child relationship. \
+If an element appears between other element's start and stop then it is a child element. For example, <UI> is a child of <Contest>. This nesting implies ownership and a parent-child relationship. \
 \
 Finally, data can appear between an element's start and stop. See above <Text>QSO:</Text>. We consider the value of <Text> to be "QSO:" in this case.\
 \
-The above XML would create a legal contest description. The remainder of this document will walk through the information needed to formulate new contest description XML files.\
+The above XML would create a legal contest recipe for CabConverter 2. The remainder of this document will walk through the information needed to formulate new contest recipes.\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \fs28 \cf0 General structure of contest description files\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b0\fs24 A contest description file is an XML file that has the following elements:\
+\b0\fs24 \cf0 A contest recipe is an XML file that has the following elements:\
 \
 <Contest> \
 The "<Contest>" element is used to name the contest and supply details about the sponsor. The whole of the contest recipe is held between the bounds of the <Contest> and </Contest> entities. \
@@ -113,23 +117,28 @@ The "<Contest>" element is used to name the contest and supply details about the
 The "<UI>" element is used to contain other elements that define new user interface items like ComboBoxes (pop-up menus) and text entry areas. Every direct child of <UI> will produce a ComboBox or text entry area in the user interface.\
 \
 <Cabrillo>\
-The "<Cabrillo>" element is used to contain the pattern to be used when outputting the Cabrillo file. Each line of the file is described, including where the data for that line is to come from. A special child element "<QSO>" specifies how each detailed QSO line (corresponding to a contact in the log) should be formatted.\
+The "<Cabrillo>" element is used to contain the pattern to be used when outputting the Cabrillo file. Each line of the output file is described, including where the data for that line is to come from. A special child element "<QSO>" specifies how each detailed QSO line (corresponding to a contact in the log) should be formatted.\
 \
-Examine the sample XML file above to see these elements and their relationships to each other. Additional elements are described below. 
+Examine the sample XML contest recipe file above to see these elements and their relationships to each other. Additional elements are described below. 
 \b \
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\fs28 Contest element\
+\fs28 \cf0 Contest element\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b0\fs24 The Contest element is used to hold the rest of the recipe for the contest. It also provides a name for the contest to the user interface. The top ComboBox in the lower left panel of the CabConverter 2 program is always visible. This is the contest selection ComboBox. As XML files are read from the directory that contains them, each XML file is analyzed and dissected. The Contest element is divided into its main part (that holds all the other elements0 and its attributes: "name", "sponsor", and "shortName." The "name" attribute is used as the ComboBox (pop-up menu) item name. It is important, therefore, to have every contest have a different value for this attribute. Failure to ensure this would make it possible that two menu items would have the same string value in them. That would be very confusing!\
+\b0\fs24 \cf0 The <Contest> element is used to hold the rest of the recipe for the contest. It also provides a name for the contest to the user interface. The top ComboBox in the lower left panel of the CabConverter 2 program is always visible. This is the contest selection ComboBox. As contest recipe files are read from the directory that contains them, each recipe file is analyzed and dissected. The 
+\i Contest
+\i0  element is divided into its main part (that holds all the other elements) and its attributes: "name", "sponsor", and "shortName." The "name" attribute is used as the ComboBox (pop-up menu) item name. It is important, therefore, to have every contest receipe have a different value for this attribute. Failure to ensure this would make it possible that two menu items would have the same string value in them. That would be very confusing!\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \fs28 \cf0 UI element\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b0\fs24 The <UI> element is used to group and collect the elements needed to specify the necessary additions to the user interface. These items have the following format:\
+\b0\fs24 \cf0 The <UI> element is used to group and collect the elements needed to specify the necessary additions to the user interface. These items have the following format:\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 
@@ -139,13 +148,15 @@ Examine the sample XML file above to see these elements and their relationships 
 \cf0 \
 Examining each piece separately we find the element name (shown as SymbolName here) not only defines a new user interface element, but names that element as well. Later, when the Cabrillo file is being produced, the recipe can inquire as to the 
 \i value
-\i0  of that symbol. This is how CabConverter 2 is made to be extensible for new contest types. Contest XML recipe creators not only define the Cabrillo file format, but also create the necessary user interface elements to support that contest as well.\
+\i0  of that symbol. This is how CabConverter 2 is made to be extensible for new contest types. Contest recipe creators not only define the Cabrillo file format, but also create the necessary user interface elements to support that contest as well.\
 \
 Each element has two attributes: "prompt" and "type". The "prompt" attribute specifies the string to be placed on the left of the ComboBox or Text item. The "type" attribute can be either "list" or "text". A "list" type will have a set of <Item>\'85</Item> elements within its bounds. Each <Item>\'85</Item> set specifies a value that will appear within the pop-up menu. In the example above two values will be populated into the TestName pop-up menu: "ACME-CW" and "ACME-SSB". The value of a "list" type UI element is whatever menu item is selected by the user.\
 \
 Items of type "text" are given a free format text entry area. Users may enter whatever value is appropriate there. The value of a "text" type UI element is whatever the user typed. \
 \
-The bottom left panel in the user interface is reserved for contest-specific user interface elements. CabConverter will take each child element of <UI> and create a prompt string and user-input item (either ComboBox or text field). The first element in the set appears at the top with the second element beneath it, and so on. Order the elements within the <UI> section in the same order that you would wish them to appear in the user interface.\
+The bottom left panel in the user interface is reserved for contest-specific user interface elements. CabConverter will take each child element of <UI> and create a prompt string and user-input item (either ComboBox or text field). The first element in the set appears at the top with the second element beneath it, and so on. Order the elements within the <UI>
+\i  
+\i0 section in the same order that you would wish them to appear in the user interface.\
 \
 Note that the two left panes in the user interface have a movable bar between them. Moving the bar can reveal more of either the top or bottom pane. So, if some user interface elements are not visible by default, the user can move the bar to reveal them.\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
@@ -154,8 +165,9 @@ Note that the two left panes in the user interface have a movable bar between th
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \fs28 \cf0 Cabrillo element and Lines\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b0\fs24 The Cabrillo element is used to define the specifics of the Cabrillo output for the contest. Think of the Cabrillo file as a report, CabConverter 2 as a report generator, and the <Cabrillo> section as the report format specification.\
+\b0\fs24 \cf0 The Cabrillo element is used to define the specifics of the Cabrillo output for the contest. Think of the Cabrillo file as a report, CabConverter 2 as a report generator, and the <Cabrillo> section as the report format specification.\
 \
 An important principle for report generation is that of 
 \i substitution. 
@@ -163,7 +175,7 @@ An important principle for report generation is that of
 \
 The Cabrillo section is defined between the opening element <Cabrillo> and its closing marker </Cabrillo>. All the report format details are held between these two points. \
 \
-The Cabrillo section is made up of one or more <Line> elements and one <QSO> element. <Line> elements define how a particular line will be formatted in a report file. Consider the first line in the sample XML file.\
+The Cabrillo section is made up of one or more <Line> elements and one <QSO> element. <Line> elements define how a particular line will be formatted in a report file. Consider the first line in the sample recipe file.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 
@@ -191,7 +203,7 @@ Like the the first line, this line begins and ends with <Line> and </Line> respe
 \cf0 CALLSIGN: W1AW\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 \cf0 \
-Note the space between the colon (:) and the call sign. That space was in the <Text> element "CALLSIGN: ". It is recommended that a space appear between Cabrillo literals like "CALLSIGN:" and the data after them. Again, this is done easily by remembering to include a space a <Text> element if one is needed.\
+Note the space between the colon (:) and the call sign. That space was in the <Text> element "CALLSIGN: ". It is recommended that a space appear between Cabrillo literals like "CALLSIGN:" and the data after them. Again, this is done easily by remembering to include a space within a <Text> element if one is needed.\
 \
 The 
 \i heading
@@ -311,10 +323,11 @@ Note that is it possible to have several substitutions on a given line. Consider
 \cf0 \
 In this case, the "CATEGORY: " is defined by combining two UI elements "CategoryOperator" and "CategoryPower". A Text element in the middle " ALL " is also present. As long as the proper formatting is done (ensuring that an open element <X> is closed by its counterpart <X/>) any number of elements can appear on the line with as many substitutions as needed.\
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b\fs28 QSO element
+\b\fs28 \cf0 QSO element
 \b0\fs24 \
-The final major component to discuss is the QSO element. There is only one QSO element per XML file. The QSO element is both a placeholder that indicates where all the log file details should be placed, and a formatting specifier that dictates the substitutions to be made. \
+The final major component to discuss is the QSO element. There is only one QSO element per recipe file. The QSO element is both a placeholder that indicates where all the log file details should be placed, and a formatting specifier that dictates the substitutions to be made. \
 \pard\tx529\pardeftab529\pardirnatural
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
@@ -335,15 +348,13 @@ The final major component to discuss is the QSO element. There is only one QSO e
 \cf0 	\cf3 STX			\cf0 ~ The exchange string sent\cf3 \
 \cf0 	\cf3 SRX			\cf0 ~ The exchange string received\cf3 \
 \cf0 \
-\pard\pardeftab720
 
-\f0 \cf0 Mode is translated as follows:
-\f2 \
+\f0\fs24 Mode is translated as follows:
+\f2\fs22 \
 \
 	\cf3 USB, SSB, LSB	\cf0 ~ to "PH"\cf3 \
 	CW, CWR		\cf0 ~ to "CW"\cf3 \
 	RTTY			\cf0 ~ to "RT"\
-\pard\pardeftab720
 \cf3 	AM			\cf0 ~ to "AM"\
 \cf3 	FM			\cf0 ~ to "FM"\
 	\cf3 DV			\cf0 ~ to "DV"\
@@ -370,22 +381,23 @@ Each record in the ADIF file (the user's radio log) will be translated into a si
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b\fs28 \cf0 Placement of all XML contest recipes
+\b\fs28 \cf0 Placement of all contest recipes
 \f2\b0\fs22 \
 \pard\pardeftab720
 
-\f0\fs24 \cf0 All XML files used for contest recipes must be placed in a folder called "CCContests" in the user's home directory. In UNIX directory terms, that would be "~/CCContests". CabConverter 2 examines the CCContests directory and consumes all files of the type .xml upon startup. Each contest is then added to the contest selection ComboBox in the lower left panel.\
+\f0\b\fs24 \cf4 All XML files used for contest recipes must be placed in a folder called "CCContests" in the user's home directory. 
+\b0 \cf0 In UNIX directory terms, that would be "~/CCContests". CabConverter 2 examines the CCContests directory and consumes all files of the type .xml upon startup. Each contest is then added to the contest selection ComboBox in the lower left panel.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b\fs28 \cf0 Debugging an XML contest recipe\
+\b\fs28 \cf0 Debugging a contest recipe\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b0\fs22 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 
-\b \cf5 "Why didn't my new .xml contest specification appear in the ComboBox?"
-\b0 \cf0 \
+\b\fs24 \cf5 "Why didn't my new .xml contest specification appear in the ComboBox?"
+\b0\fs22 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \fs24 \cf0 \
@@ -416,7 +428,7 @@ The error message goes on to say, \
 \
 This is the biggest hint. Somewhere in the named XML file (NAQP.XML in this case) there is a <Line> element that does not have a proper </Line> end-tag. Find the <Line> element with that problem and you've likely fixed the bug. (Of course, the file may have several problems--but each one can be found by reading the error message and locating the offending bit.)\
 \
-The best way to create a new XML contest recipe is to take an existing recipe and alter it. That approach reduces the likelihood of formatting and syntax problems.\
+The best way to create a new contest recipe is to take an existing recipe and alter it. That approach reduces the likelihood of formatting and syntax problems.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 \cf0 # # #\
