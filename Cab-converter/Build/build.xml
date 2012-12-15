@@ -1,0 +1,19 @@
+<project name="CabConverter" default="app" basedir="../">
+  <property name="src" location="src"/>
+  <property name="bin" location="bin"/>
+
+  <target name="compile" 
+        description="compile the source " >
+    <javac srcdir="${src}" destdir="${bin}"/>
+  </target>
+
+  <target name="app" depends="compile"
+        description="generate the JAR file" >
+    <jar jarfile="CabConverter.jar" basedir="${bin}">
+	  <manifest>
+         <attribute name="Main-Class" value="CabConverter"/>
+      </manifest>
+	</jar>
+  </target>
+</project>
+
