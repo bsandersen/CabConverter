@@ -11,6 +11,8 @@ release:
 	mkdir /tmp/CabConverter/src/
 	mkdir /tmp/CabConverter/Documentation
 	mkdir /tmp/CabConverter/CCContests
+	mkdir /tmp/CabConverter/Build
+	cp * /tmp/CabConverter/Build
 	cp ../CabConverter.jar /tmp/CabConverter
 	cp ../Documentation/*.rtf /tmp/CabConverter/Documentation
 	cp -r ../Documentation/*.rtfd /tmp/CabConverter/Documentation
