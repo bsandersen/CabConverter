@@ -77,7 +77,7 @@ public class PreferencesManager {
 		// Get the preferences node for this user and this package.
 	    Preferences prefs = Preferences.userNodeForPackage (getClass ());
 	    try {
-			prefs.put("CallSign", p.getCallSign());
+			prefs.put("CallSign", p.getMyCallSign());
 			prefs.put("Name", p.getName());
 			prefs.put("Address1", p.getAddress1());
 			prefs.put("Address2", p.getAddress2());

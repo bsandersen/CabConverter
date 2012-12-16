@@ -62,7 +62,7 @@ public class CabrilloQSO {
 					s = s.concat(r.call + " ");
 				} else if (key.compareToIgnoreCase("Callsign") == 0) {
 					// Special case: we get this from the personal data
-					s = s.concat(personalData.getCallSign() + " ");
+					s = s.concat(personalData.getMyCallSign() + " ");
 				} else if (key.compareToIgnoreCase("Date") == 0) {
 					s = s.concat(r.date + " ");
 				} else if (key.compareToIgnoreCase("Time") == 0) {

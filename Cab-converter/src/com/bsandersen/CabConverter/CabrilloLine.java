@@ -65,8 +65,8 @@ public class CabrilloLine {
 			} else {
 				// See if the problem can be solved by looking in the
 				// personal data.
-				if (type.compareToIgnoreCase(PersonalData.key_Callsign) == 0) {
-					s = s.concat(personalData.getCallSign());
+				if (type.compareToIgnoreCase(PersonalData.key_MyCallsign) == 0) {
+					s = s.concat(personalData.getMyCallSign());
 				} else if (type.compareToIgnoreCase(PersonalData.key_Name) == 0) {
 					s = s.concat(personalData.getName());
 				} else if (type.compareToIgnoreCase(PersonalData.key_Address1) == 0) {

@@ -48,7 +48,7 @@
 			
 	<Cabrillo>
 		<Line><Text>START-OF-LOG: 3.0</Text></Line>
-		<Line><Text>CALLSIGN: </Text><Callsign/></Line>
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
 		<Line><Text>CONTEST: </Text><TestName/></Line>
 		<Line><Text>CATEGORY-OPERATOR: </Text><CategoryOperator/></Line>
 		<Line><Text>CATEGORY-ASSISTED: </Text><CategoryAssisted/></Line>
@@ -74,7 +74,7 @@
 			<Mode/>
 			<Date/>
 			<Time/>
-			<Callsign/>
+			<MyCallsign/>
 			<RSTs/>
 			<STX/>
 			<TheirCallsign/>

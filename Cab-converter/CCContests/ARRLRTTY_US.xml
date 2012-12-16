@@ -21,7 +21,7 @@
 	<Cabrillo>
 		<Line><Text>START-OF-LOG: 3.0</Text></Line>
 		<Line><Text>LOCATION: </Text><ARRLSection/></Line>
-		<Line><Text>CALLSIGN: </Text><Callsign/></Line>
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
 		<Line><Text>CATEGORY-ASSISTED: </Text><CategoryAssisted/></Line>
 		<Line><Text>CATEGORY-BAND: ALL</Text></Line>		
 		<Line><Text>CATEGORY-MODE: RTTY</Text></Line>				
@@ -48,7 +48,7 @@
 			<Mode/>
 			<Date/>
 			<Time/>
-			<Callsign/>
+			<MyCallsign/>
 			<RSTs/>
 			<STX/>
 			<TheirCallsign/>

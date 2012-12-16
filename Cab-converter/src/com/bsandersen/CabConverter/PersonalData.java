@@ -41,7 +41,7 @@ public class PersonalData extends JScrollPane {
 	 * These are the labels the correspond to the array of text fields
 	 * generated in the constructor.
 	 */
-	public static final String key_Callsign = "Callsign";
+	public static final String key_MyCallsign = "MyCallsign";
 	public static final String key_Name = "Name";
 	public static final String key_Address1 = "Address1";
 	public static final String key_Address2 = "Address2";
@@ -60,7 +60,7 @@ public class PersonalData extends JScrollPane {
 	 * These are used as an index into the array of text fields created below.
 	 */
 	private enum DataIndex {
-		CALLSIGN, NAME, ADDRESS1, ADDRESS2, CITY, PROVINCE, POSTALCODE, COUNTRY,
+		MYCALLSIGN, NAME, ADDRESS1, ADDRESS2, CITY, PROVINCE, POSTALCODE, COUNTRY,
 		EMAIL, IOTADESGINATOR, ISLANDNAME, ARRLSECTION, CQZONE, CLUB,
 		LAST
 	}
@@ -82,7 +82,7 @@ public class PersonalData extends JScrollPane {
 	 * These are the keyword/keys that can be used in macros inside an XML file.
 	 */
 	private static String keys[] = {
-		key_Callsign,
+		key_MyCallsign,
 		key_Name,
 		key_Address1,
 		key_Address2,
@@ -189,8 +189,8 @@ public class PersonalData extends JScrollPane {
 	/*
 	 * getters
 	 */
-	public String getCallSign() {
-		return new String(fields[DataIndex.CALLSIGN.ordinal()].getText());
+	public String getMyCallSign() {
+		return new String(fields[DataIndex.MYCALLSIGN.ordinal()].getText());
 	}
 	public String getName() {
 		return new String(fields[DataIndex.NAME.ordinal()].getText());
@@ -236,7 +236,7 @@ public class PersonalData extends JScrollPane {
 	 * Setters
 	 */
 	public void setCallSign(String s) {
-		fields[DataIndex.CALLSIGN.ordinal()].setText(new String(s));
+		fields[DataIndex.MYCALLSIGN.ordinal()].setText(new String(s));
 	}
 	public void setName(String s) {
 		fields[DataIndex.NAME.ordinal()].setText(new String(s));

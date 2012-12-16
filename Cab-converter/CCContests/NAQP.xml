@@ -22,7 +22,7 @@
 	<Cabrillo>
 		<Line><Text>START-OF-LOG: 2.0</Text></Line>
 		<Line><Text>ARRL-SECTION: </Text><ARRLsection/></Line>
-		<Line><Text>CALLSIGN: </Text><Callsign/></Line>
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
 		<Line><Text>CATEGORY: </Text><CategoryOperator/><Text> ALL </Text><CategoryPower/></Line>
 		<Line><Text>CLUB: </Text><Club/></Line>
 		<Line><Text>CONTEST: </Text><TestName/></Line>		
@@ -42,7 +42,7 @@
 			<Mode/>
 			<Date/>
 			<Time/>
-			<Callsign/>
+			<MyCallsign/>
 			<STX/>
 			<TheirCallsign/>
 			<SRX/>

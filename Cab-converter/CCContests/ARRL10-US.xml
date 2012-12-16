@@ -29,7 +29,7 @@
 		<Line><Text>START-OF-LOG: 3.0</Text></Line>
 		<Line><Text>LOCATION: </Text><ARRLSection/></Line>
 		<Line><Text>CONTEST: ARRL-10</Text></Line>
-		<Line><Text>CALLSIGN: </Text><Callsign/></Line>
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
 		<Line><Text>CATEGORY-OPERATOR: </Text><CategoryOperator/></Line>
 		<Line><Text>CATEGORY-POWER: </Text><CategoryPower/></Line>
 		<Line><Text>CATEGORY-MODE: </Text><CategoryMode/></Line>
@@ -52,7 +52,7 @@
 			<Mode/>
 			<Date/>
 			<Time/>
-			<Callsign/>
+			<MyCallsign/>
 			<RSTs/>
 			<STX/>
 			<TheirCallsign/>

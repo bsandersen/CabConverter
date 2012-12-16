@@ -1,8 +1,8 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 CourierNewPS-BoldMT;\f2\fnil\fcharset0 Monaco;
 }
-{\colortbl;\red255\green255\blue255;\red59\green0\blue164;\red42\green0\blue255;\red217\green11\blue0;
-\red255\green39\blue18;}
+{\colortbl;\red255\green255\blue255;\red59\green0\blue164;\red74\green0\blue230;\red42\green0\blue255;
+\red217\green11\blue0;\red255\green39\blue18;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
 {\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
 \margl1440\margr1440\vieww12040\viewh16300\viewkind0
@@ -65,7 +65,7 @@ CabConverter 2 can be configured to support many different contests. Composing a
 			\
 	<Cabrillo>\
 		<Line><Text>START-OF-LOG: 2.0</Text></Line>\
-		<Line><Text>CALLSIGN: </Text><Callsign/></Line>\
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>\
 		<Line><Text>CONTEST: </Text><TestName/></Line>		\
 		<Line><Text>EMAIL:  </Text><Email/></Line>		\
 		<Line><Text>OPERATORS: </Text><Operators/></Line>		\
@@ -75,7 +75,7 @@ CabConverter 2 can be configured to support many different contests. Composing a
 			<Mode/>\
 			<Date/>\
 			<Time/>\
-			<Callsign/>\
+			<MyCallsign/>\
 			<STX/>\
 			<TheirCallsign/>\
 			<SRX/>\
@@ -93,7 +93,7 @@ Note the use of the "<" and ">" characters. Things enclosed within those angle b
 \i attributes
 \i0 . Examine the first line of our sample XML file. The element type is "Contest" and it has three attributes, name, sponsor, and shortName. Those three attributes have the values "Sample Contest", "Acme radio", and "ACME" respectively. \
 \
-Elements are bounded. That is, they have a start and stop. An element has a start like this <X> and it stops like this </X>. Note that <Contest>, <UI>, and <Cabrillo> all have these starts and stops. There is a shortcut if you only have one element with no children. You can write it like this <Simple/> with a stroke character just before the closing angle bracket. Find <Callsign/> above to see an example.\
+Elements are bounded. That is, they have a start and stop. An element has a start like this <X> and it stops like this </X>. Note that <Contest>, <UI>, and <Cabrillo> all have these starts and stops. There is a shortcut if you only have one element with no children. You can write it like this <Simple/> with a stroke character just before the closing angle bracket. Find <MyCallsign/> above to see an example.\
 \
 If an element appears between other element's start and stop then it is a child element. For example, <UI> is a child of <Contest>. This nesting implies ownership and a parent-child relationship. \
 \
@@ -193,11 +193,11 @@ The second line in the example XML file illustrates the specification of a subst
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 
-\f1\b\fs20 \cf0 <Line><Text>CALLSIGN: </Text><Callsign/></Line>
+\f1\b\fs20 \cf0 <Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
 \f0\b0\fs24 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 \cf0 \
-Like the the first line, this line begins and ends with <Line> and </Line> respectively. Text appearing between those two points, "CALLSIGN: ", will appear verbatim in the Cabrillo output file. Another element, <Callsign/>, also appears. The <Callsign/> element is used to indicate CabConverter 2 should place the user's call sign (as entered in the personal data pane) into the report at this place. So, if the user was "W1AW" those characters would appear at that place in the report. The output from CabConverter 2 would therefore look like the following when the report was generated:\
+Like the the first line, this line begins and ends with <Line> and </Line> respectively. Text appearing between those two points, "CALLSIGN: ", will appear verbatim in the Cabrillo output file. Another element, <MyCallsign/>, also appears. The <MyCallsign/> element is used to indicate CabConverter 2 should place the user's call sign (as entered in the personal data pane) into the report at this place. So, if the user was "W1AW" those characters would appear at that place in the report. The output from CabConverter 2 would therefore look like the following when the report was generated:\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 \cf0 CALLSIGN: W1AW\
@@ -211,46 +211,46 @@ The
 \
 \pard\pardeftab720
 
-\f2\fs22 \cf0 	\cf3 Callsign		
+\f2\fs22 \cf0 	\cf3 MyCal\cf4 lsign		
 \f0\fs24 \cf0 ~ The user's call sign
 \f2\fs22 \
-	\cf3 Name			
+	\cf4 Name			
 \f0\fs24 \cf0 ~ The user's full name
 \f2\fs22 \
-	\cf3 Address1		
+	\cf4 Address1		
 \f0\fs24 \cf0 ~ The user's street address (first line)
 \f2\fs22 \
-	\cf3 Address2		
+	\cf4 Address2		
 \f0\fs24 \cf0 ~ The user's street address (second line)
 \f2\fs22 \
-	\cf3 City			
+	\cf4 City			
 \f0\fs24 \cf0 ~ The user's city
 \f2\fs22 \
-	\cf3 State			
+	\cf4 State			
 \f0\fs24 \cf0 ~ The user's state
 \f2\fs22 \
-	\cf3 PostalCode		
+	\cf4 PostalCode		
 \f0\fs24 \cf0 ~ The user's ZIP code or postal code
 \f2\fs22 \
-	\cf3 Country		
+	\cf4 Country		
 \f0\fs24 \cf0 ~ The user's country
 \f2\fs22 \
-	\cf3 Email			
+	\cf4 Email			
 \f0\fs24 \cf0 ~ The user's EMAIL address
 \f2\fs22 \
-	\cf3 IOTA			
+	\cf4 IOTA			
 \f0\fs24 \cf0 ~ The IOTA designator (used if the contest was done while on an island)
 \f2\fs22 \
-	\cf3 Island		
+	\cf4 Island		
 \f0\fs24 \cf0 ~ The island name (needed in addition to the IOTA designator for some contests)
 \f2\fs22 \
-	\cf3 ARRLsection	
+	\cf4 ARRLsection	
 \f0\fs24 \cf0 ~ The user's ARRL section (or DX for those outside US and Canada)
 \f2\fs22 \
-	\cf3 Zone			
+	\cf4 Zone			
 \f0\fs24 \cf0 ~ The user's CQ zone
 \f2\fs22 \
-	\cf3 Club			
+	\cf4 Club			
 \f0\fs24 \cf0 ~ The full name of the radio club (used for club competition)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 \cf0 \
@@ -335,33 +335,33 @@ The final major component to discuss is the QSO element. There is only one QSO e
 \
 \pard\pardeftab720
 
-\f2\fs22 \cf0 	\cf3 TheirCallsign	\cf0 ~ The call sign of the station contacted in this QSO\cf3 \
-\cf0 	\cf3 Callsign		\cf0 ~ The call sign of the user (obtained from the personal data section)\cf3 \
-\cf0 	\cf3 Date			\cf0 ~ The date of the QSO in the form YYYY-MM-DD\cf3 \
-\cf0 	\cf3 Time			\cf0 ~ The time of the QSO in the form HHMM\cf3 \
-\cf0 	\cf3 Frequency		\cf0 ~ The frequency of the QSO in the form NNNNN (in KHz)\cf3 \
-\cf0 	\cf3 Mode			\cf0 ~ The mode used in the contact (see note below)\cf3 \
-\cf0 	\cf3 RSTs			\cf0 ~ The RST sent\cf3 \
-\cf0 	\cf3 RSTr			\cf0 ~ The RST received\cf3 \
-\cf0 	\cf3 STXn			\cf0 ~ The serial number (numeric field) sent\cf3 \
-\cf0 	\cf3 SRXn			\cf0 ~ The serial number (numeric field) received\cf3 \
-\cf0 	\cf3 STX			\cf0 ~ The exchange string sent\cf3 \
-\cf0 	\cf3 SRX			\cf0 ~ The exchange string received\cf3 \
+\f2\fs22 \cf0 	\cf4 TheirCallsign	\cf0 ~ The call sign of the station contacted in this QSO\cf4 \
+\cf0 	\cf4 MyCallsign		\cf0 ~ The call sign of the user (obtained from the personal data section)\cf4 \
+\cf0 	\cf4 Date			\cf0 ~ The date of the QSO in the form YYYY-MM-DD\cf4 \
+\cf0 	\cf4 Time			\cf0 ~ The time of the QSO in the form HHMM\cf4 \
+\cf0 	\cf4 Frequency		\cf0 ~ The frequency of the QSO in the form NNNNN (in KHz)\cf4 \
+\cf0 	\cf4 Mode			\cf0 ~ The mode used in the contact (see note below)\cf4 \
+\cf0 	\cf4 RSTs			\cf0 ~ The RST sent\cf4 \
+\cf0 	\cf4 RSTr			\cf0 ~ The RST received\cf4 \
+\cf0 	\cf4 STXn			\cf0 ~ The serial number (numeric field) sent\cf4 \
+\cf0 	\cf4 SRXn			\cf0 ~ The serial number (numeric field) received\cf4 \
+\cf0 	\cf4 STX			\cf0 ~ The exchange string sent\cf4 \
+\cf0 	\cf4 SRX			\cf0 ~ The exchange string received\cf4 \
 \cf0 \
 
 \f0\fs24 Mode is translated as follows:
 \f2\fs22 \
 \
-	\cf3 USB, SSB, LSB	\cf0 ~ to "PH"\cf3 \
-	CW, CWR		\cf0 ~ to "CW"\cf3 \
+	\cf4 USB, SSB, LSB	\cf0 ~ to "PH"\cf4 \
+	CW, CWR		\cf0 ~ to "CW"\cf4 \
 	RTTY			\cf0 ~ to "RT"\
-\cf3 	AM			\cf0 ~ to "AM"\
-\cf3 	FM			\cf0 ~ to "FM"\
-	\cf3 DV			\cf0 ~ to "DV"\
-	\cf3 PSK, FSK, FSK-R	\cf0 ~ to "PH"\cf3 \
+\cf4 	AM			\cf0 ~ to "AM"\
+\cf4 	FM			\cf0 ~ to "FM"\
+	\cf4 DV			\cf0 ~ to "DV"\
+	\cf4 PSK, FSK, FSK-R	\cf0 ~ to "PH"\cf4 \
 \pard\pardeftab720
 
-\f0\fs24 \cf3 \
+\f0\fs24 \cf4 \
 \pard\pardeftab720
 \cf0 In a pinch, if the mode does not match any of the above CabConverter 2 will insert "??" as the mode. Users can open the Cabrillo report and fix the problem themselves by replacing "??" with whatever two-letter mode is needed. (Translations for other modes may be made prior to the full release of CabConverter 2.)\
 \
@@ -369,7 +369,7 @@ Each record in the ADIF file (the user's radio log) will be translated into a si
 \
 \pard\pardeftab720
 
-\b \cf4 Note that it is \ul crucial\ulnone  that the user put the exchange information in the place expected by CabConverter 2. Contest XML recipe creators should also create instructions for the user so that MacLogger DX is configured properly for the contest, and that users are trained to put the contest exchange data in the proper place and in the proper form.
+\b \cf5 Note that it is \ul crucial\ulnone  that the user put the exchange information in the place expected by CabConverter 2. Contest XML recipe creators should also create instructions for the user so that MacLogger DX is configured properly for the contest, and that users are trained to put the contest exchange data in the proper place and in the proper form.
 \b0 \cf0 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
@@ -385,7 +385,7 @@ Each record in the ADIF file (the user's radio log) will be translated into a si
 \f2\b0\fs22 \
 \pard\pardeftab720
 
-\f0\b\fs24 \cf4 All XML files used for contest recipes must be placed in a folder called "CCContests" in the user's home directory. 
+\f0\b\fs24 \cf5 All XML files used for contest recipes must be placed in a folder called "CCContests" in the user's home directory. 
 \b0 \cf0 In UNIX directory terms, that would be "~/CCContests". CabConverter 2 examines the CCContests directory and consumes all files of the type .xml upon startup. Each contest is then added to the contest selection ComboBox in the lower left panel.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
@@ -396,7 +396,7 @@ Each record in the ADIF file (the user's radio log) will be translated into a si
 \b0\fs22 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 
-\b\fs24 \cf5 "Why didn't my new .xml contest specification appear in the ComboBox?"
+\b\fs24 \cf6 "Why didn't my new .xml contest specification appear in the ComboBox?"
 \b0\fs22 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 

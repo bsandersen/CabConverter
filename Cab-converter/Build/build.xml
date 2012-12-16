@@ -2,8 +2,11 @@
   <property name="src" location="src"/>
   <property name="bin" location="bin"/>
 
+ <mkdir dir="${bin}"/> 
+
   <target name="compile" 
         description="compile the source " >
+ 	<mkdir dir="${bin}"/> 
     <javac srcdir="${src}" destdir="${bin}"/>
   </target>
 
