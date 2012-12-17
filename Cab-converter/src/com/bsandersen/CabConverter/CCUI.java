@@ -8,6 +8,9 @@ package com.bsandersen.CabConverter;
 import java.awt.Container;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -33,13 +36,23 @@ import javax.swing.JSplitPane;
 public class CCUI extends JFrame {
 	static final long serialVersionUID = 0;
 	
-	public static JFrame ui = null;
+	private static CCUI ui = null;
 	//private static Application macApplication = null;
 	
 	@SuppressWarnings("unused")
 	private ADIFparser adifParser = new ADIFparser();
 	private PreferencesManager pm = new PreferencesManager();
 	private XMLparser xmlParser = new XMLparser();
+	
+	// Menu item for Generate Cabrillo File...
+	private JMenuItem generateItem;
+	
+	/**
+	 * Returns the instance of this object.
+	 */
+	public static CCUI getInstance() {
+		return ui;
+	}
 	
 	/**
 	 * This class is a singleton that build the main user interface
@@ -89,7 +102,6 @@ public class CCUI extends JFrame {
 		// Obtain the user preferences and populate the UI
 		pm.retrieve(personalData);
 		
-
 		// Reveal our masterpiece
 		setVisible(true);
 		
@@ -103,7 +115,7 @@ public class CCUI extends JFrame {
 		openItem.setMnemonic('O');
 		JMenuItem saveItem = new JMenuItem("Save Personal Info");
 		saveItem.setMnemonic('S');
-		JMenuItem generateItem = new JMenuItem("Generate Cabrillo File...");
+		generateItem = new JMenuItem("Generate Cabrillo File...");
 		generateItem.setMnemonic('G');
 		
 		JMenu fileMenu = new JMenu("File");
@@ -114,6 +126,7 @@ public class CCUI extends JFrame {
 		openItem.addActionListener(new OpenAdifItemListener());
 		saveItem.addActionListener(new SavePreferencesListener());
 		generateItem.addActionListener(new GenerateCabrilloListener());
+		manageGenerateItem();
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.add(fileMenu);
@@ -126,6 +139,21 @@ public class CCUI extends JFrame {
 		// macApplication = Application.get_application();
 		// macApplication.setAboutHandler(new CabAboutHandler());
 		
+	}
+	
+	/**
+	 * The Generate Cabrillo menu item should only be enabled
+	 * if we have both an ADIF file read in AND we have a contest selected.
+	 */
+	public void manageGenerateItem() {
+		ADIFrecord rec = ADIFparser.getInstance().getAdifRecords();
+		
+		if ((rec != null) &&
+			(ContestDetails.getInstance().contestIsSelected())) {
+			generateItem.setEnabled(true);
+		} else {
+			generateItem.setEnabled(false);
+		}
 	}
 	
 	/**

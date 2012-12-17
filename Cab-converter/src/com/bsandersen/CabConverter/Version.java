@@ -13,5 +13,5 @@ package com.bsandersen.CabConverter;
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
 public class Version {
-	public final static String version = "CabConverter 2.0b";
+	public final static String version = "CabConverter 2.0c";
 }

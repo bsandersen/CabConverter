@@ -26,7 +26,7 @@ public class OpenAdifItemListener implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JFileChooser fc = new JFileChooser();
-	    int returnVal = fc.showOpenDialog(CCUI.ui);
+	    int returnVal = fc.showOpenDialog(CCUI.getInstance());
 	    if (JFileChooser.APPROVE_OPTION == returnVal) {
 	    	ADIFparser.getInstance().parseADIFfile(fc.getSelectedFile());
 	    } else {

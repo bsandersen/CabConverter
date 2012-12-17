@@ -51,13 +51,15 @@ public class ContestDetails extends JScrollPane {
 	// We don't want to delete the list, too!
 	// [Well, we could, and rebuild it every time, but that seems
 	// wasteful.]
-	private final String selectorName = "CabConverter-selector-box";
+	protected final static String selectorName = "CabConverter-selector-box";
 	
 	// Singleton support
 	private static ContestDetails us;
 	
 	// Pointer to the contest currently selected.
 	private Contest currentContest = null;
+	
+	private final static String selectContest = "Select Contest";
 	
 	/**
 	 * This class is a Singleton. Here is the get instance method.
@@ -93,7 +95,7 @@ public class ContestDetails extends JScrollPane {
 		// enough to be included in the contest list, and show up
 		// in the ComboBox.
 		contestList.addActionListener(new SelectionMadeListener());
-		contestList.addItem("Select contest");
+		contestList.addItem(selectContest);
 		for (int i = 0; i < contestCount; i++) {
 			contestList.addItem(contests[i].getName());
 		}
@@ -176,6 +178,19 @@ public class ContestDetails extends JScrollPane {
 			buildUI();
 			us.revalidate();
 			us.repaint();
+			CCUI.getInstance().manageGenerateItem();
+		}
+	}
+	
+	/** 
+	 * Indication of whether a contest is currently selected.
+	 * @return boolean
+	 */
+	public boolean contestIsSelected() {
+		if (getCurrentContest() != null) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 	

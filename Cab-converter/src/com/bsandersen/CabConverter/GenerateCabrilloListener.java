@@ -26,7 +26,7 @@ public class GenerateCabrilloListener implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JFileChooser fileChooser = new JFileChooser();
-		if (fileChooser.showSaveDialog(CCUI.ui) == JFileChooser.APPROVE_OPTION) {
+		if (fileChooser.showSaveDialog(CCUI.getInstance()) == JFileChooser.APPROVE_OPTION) {
 		  File file = fileChooser.getSelectedFile();
 		  
 		  // The user has selected an output file location. Convert to Cabrillo.

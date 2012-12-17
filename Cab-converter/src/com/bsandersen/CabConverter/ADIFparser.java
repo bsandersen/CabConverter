@@ -43,6 +43,14 @@ public class ADIFparser {
 	 * line: the characters read from the file
 	 */
 	private BufferedReader in;
+	
+	/*
+	 * Keep track of whether we've read in a file. We are only allowed
+	 * to keep the Generate Cabrillo menu item lit if we have read in a file
+	 */
+	private boolean haveReadInAnADIFfile = false;
+	
+	
 	private String tokens[] = new String[200];
 	private int tokenIndex;
 	private int tokensThisLine;
@@ -69,14 +77,7 @@ public class ADIFparser {
 	 * 
 	 * @param The file to open as selected by the user.
 	 */
-	public void parseADIFfile(File f) {		
-
-		
-		// Do away with anything we had previously.
-		// This also allocates the collection area.
-		// emptyLog();
-		
-		// Open the specified file
+	public void parseADIFfile(File f) {			
 		try {
 			in = new BufferedReader(new FileReader(f));
 			
@@ -89,11 +90,15 @@ public class ADIFparser {
 			adifTail = null;
 			
 			processFile(logViewer);
-			
 			logViewer.refresh();
+			
+			haveReadInAnADIFfile = true;
+			CCUI.getInstance().manageGenerateItem();
 		} catch (IOException e) {
 			System.err.println("Error opening ADIF file:" + e);
 			in = null;	// Make sure we don't do something stupid
+			haveReadInAnADIFfile = false;
+			CCUI.getInstance().manageGenerateItem();
 			return;
 		}
 		

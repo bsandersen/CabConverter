@@ -60,7 +60,7 @@ public class CabrilloQSO {
 
 				if (key.compareToIgnoreCase("TheirCallsign") == 0) {
 					s = s.concat(r.call + " ");
-				} else if (key.compareToIgnoreCase("Callsign") == 0) {
+				} else if (key.compareToIgnoreCase("MyCallsign") == 0) {
 					// Special case: we get this from the personal data
 					s = s.concat(personalData.getMyCallSign() + " ");
 				} else if (key.compareToIgnoreCase("Date") == 0) {
