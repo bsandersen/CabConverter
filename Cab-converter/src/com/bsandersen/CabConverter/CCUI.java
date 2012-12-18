@@ -8,8 +8,6 @@ package com.bsandersen.CabConverter;
 import java.awt.Container;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
