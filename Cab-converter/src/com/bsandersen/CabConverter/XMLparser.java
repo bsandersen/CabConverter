@@ -17,7 +17,12 @@ import java.io.File;
 
 /**
  * This is the interface to the XML parser facility in Java used
- * to consume the contest description files.
+ * to consume the contest description files. The expectation is
+ * we will find the CCContest folder in the correct place for this
+ * platform:
+ * 
+ *  ~/Documents/CCContests for MacOS X and LINUX users
+ * Desktop\CCContests for Windows users
  * 
  * @author B. Scott Andersen
  *
@@ -45,20 +50,51 @@ public class XMLparser {
 	private Contest allTests[] = new Contest[200];
 	private int contestCount = 0;
 	private String fileNameBeingProcessed = null;
+
 	
 	/**
 	 * Constructor
+	 * 
+	 * Though we are primarily a Macintosh MacLoggerDX utility
+	 * we give a nod to the Windows world by indicating that the
+	 * CCContests directory can be placed on the "Desktop" for
+	 * Windows users.
+	 * 
+	 * ~/Documents/CCContests for MacOS X and LINUX users
+	 * Desktop\CCContests for Windows users
 	 */
 	public XMLparser() {
 		me = this;
 		JFileChooser chooser = new JFileChooser();
 		FileSystemView view = chooser.getFileSystemView();
 		File homeDirectory = view.getHomeDirectory();
-		File CCContestsDirectory = new File(homeDirectory, "/Documents/CCContests/");
+		String OS = System.getProperty("os.name").toLowerCase();
+		String ContestDir = ("/Documents/CCContests/");
+		
+		/*
+		 * We make things easier for Windows users by requiring
+		 * the CCContests directory to appear on the Desktop 
+		 *instead of some subfolder. To know if we're on Windows
+		 * ask Java for the OS name. Then change the directory name
+		 * if we are.
+		 */
+		if (OS.indexOf("win") >= 0) {
+			ContestDir = ("/CCContests/");
+		}
+
+		/*
+		 * Get the list of files in the CCContest directory and
+		 * process them.
+		 */
+		File CCContestsDirectory = new File(homeDirectory, ContestDir);
 		String[] contests = CCContestsDirectory.list();
 		 
 		if (contests == null) {
-			// No contests defined. Sad, but legal.
+			/*
+			 * No contests defined. Sad, but legal.
+			 * We warn the user about this in the UI part of the program
+			 * and remind them to install the CCContest directory.
+			 */
 		} else {
 			for(int i = 0; i < contests.length; i++) {
 	    		File contestFile = new File(CCContestsDirectory, contests[i]);
