@@ -17,16 +17,22 @@
 		</CategoryPower>
 
 		<Operators prompt="Operators:" type="text"/>
+
+		<RecipeVersion prompt="Recipe version:" type="list">
+			<Item>contest recipe version 1.0, by NE1RD</Item>
+		</RecipeVersion>
 	</UI>
 			
 	<Cabrillo>
 		<Line><Text>START-OF-LOG: 2.0</Text></Line>
 		<Line><Text>ARRL-SECTION: </Text><ARRLsection/></Line>
 		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
-		<Line><Text>CATEGORY: </Text><CategoryOperator/><Text> ALL </Text><CategoryPower/></Line>
+		<Line><Text>CATEGORY: </Text> <CategoryOperator/> 
+			<Text> ALL </Text> <CategoryPower/> </Line>
 		<Line><Text>CLUB: </Text><Club/></Line>
 		<Line><Text>CONTEST: </Text><TestName/></Line>		
-		<Line><Text>CREATED-BY: </Text><Version/></Line>		
+		<Line><Text>CREATED-BY: </Text><Version/>
+			<Text>, </Text> <RecipeVersion/> </Line>
 		<Line><Text>NAME: </Text><Name/></Line>
 		<Line><Text>ADDRESS: </Text><Address1/></Line>
 		<Line><Text>ADDRESS: </Text><Address2/></Line>

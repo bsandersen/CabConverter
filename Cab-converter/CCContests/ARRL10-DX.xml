@@ -23,6 +23,10 @@
 		</CategoryPower>
 		
 		<Operators prompt="Operators:" type="text"/>
+
+		<RecipeVersion prompt="Recipe version:" type="list">
+			<Item>contest recipe version 1.0, by NE1RD</Item>
+		</RecipeVersion>
 	</UI>
 			
 	<Cabrillo>
@@ -45,7 +49,8 @@
 		<Line><Text>ADDRESS-POSTALCODE: </Text><PostalCode/></Line>
 		<Line><Text>ADDRESS-COUNTRY: </Text><Country/></Line>
 		<Line><Text>EMAIL: </Text><Email/></Line>
-		<Line><Text>CREATED-BY: </Text><Version/></Line>
+		<Line><Text>CREATED-BY: </Text><Version/>
+			<Text>, </Text> <RecipeVersion/> </Line>
 		<QSO>
 			<Text>QSO:</Text>
 			<Frequency/>
