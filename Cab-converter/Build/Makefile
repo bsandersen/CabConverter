@@ -3,6 +3,7 @@
 # B. Scott Andersen, NE1RD
 
 jar:
+	ant
 	( cd ../bin/; jar cfm ../CabConverter.jar ../Build/Manifest.txt *)
 
 release:
