@@ -365,6 +365,14 @@ The final major component to discuss is the QSO element. There is only one QSO e
 \pard\pardeftab720
 \cf0 In a pinch, if the mode does not match any of the above CabConverter 2 will insert the mode as entered in the log file. So, if you have a contest that requires a mode other than those above, have the users enter the mode \ul exactly\ulnone  as it must appear in the Cabrillo output file.\
 \
+The XML entities with the STX and SRX keywords may contain an optional attribute called "ifEmpty" that is used to provide a substitution for an empty field. For example, say the following appears within the QSO section:\
+\
+\pard\pardeftab720\qc
+\cf0 <SRX ifEmpty="-----"/>\
+\
+\pard\pardeftab720
+\cf0 If a given QSO from the user's log file has the SRX text field empty then CabConverter 2 will substitute the string specified in the attribute definition for "ifEmpty." In this example, that string is five dash characters. Only the SRX and STX keywords are allowed attributes within the QSO section.\
+\
 Each record in the ADIF file (the user's radio log) will be translated into a single QSO line using the pattern dictated by the QSO section of the XML file. \
 \
 \pard\pardeftab720

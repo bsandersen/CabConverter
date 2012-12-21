@@ -394,6 +394,21 @@ public class XMLparser {
 											} // if is a text node
 										} // for j
 									} // if is an element
+								} else if (qsoChildElement.getNodeName().equalsIgnoreCase("SRX") ||
+										   qsoChildElement.getNodeName().equalsIgnoreCase("STX")) {
+									// The SRX and STX macros can have attributes (well, 1, ifEmpty).
+									// Capture the string to be substituted for an empty log element,
+									// if one exists. Otherwise, put the empty string there.
+									String ifEmptyString = "";
+									NamedNodeMap attributes = qsoChildElement.getAttributes();
+									
+									for (int i = 0; i < attributes.getLength(); i++) {
+										if (attributes.item(i).getNodeName().equalsIgnoreCase("ifEmpty")) {
+											ifEmptyString = new String(attributes.item(i).getNodeValue());
+										}
+									}
+
+									qso.addElement(qsoChildElement.getNodeName(), ifEmptyString);
 								} else if (Character.isLetter(qsoChildElement.getNodeName().charAt(0))) {
 									// We don't expect to see any children from
 									// simple macro calls. Just add the macro name.
