@@ -52,6 +52,17 @@ public class CCUI extends JFrame {
 		return ui;
 	}
 	
+	/* 
+	 * Dimensions for the UI
+	 * Changes these values to alter the basic shape of the 
+	 * user interface such as the overall window size and
+	 * positions of the "splits" in the panes.
+	 */
+	private final int WINDOW_HORIZONTAL_SIZE = 800;
+	private final int WINDOW_VERTICAL_SIZE   = 600;
+	private final int HORIZONTAL_POSITION_OF_VERTICAL_SPLIT = 390;
+	private final int VERTICAL_POSITION_OF_HORIZONTAL_SPLIT = 420;
+	
 	/**
 	 * This class is a singleton that build the main user interface
 	 * for the CabConverter program. An object of this type is 
@@ -66,7 +77,7 @@ public class CCUI extends JFrame {
 		 * the size from the last run of the program. The default size is a
 		 * fine size to start every time.
 		 */
-		setSize(800, 600);
+		setSize(WINDOW_HORIZONTAL_SIZE, WINDOW_VERTICAL_SIZE);
 
 		// Watch for program termination request
 		addWindowListener(new ExitListener());
@@ -84,7 +95,7 @@ public class CCUI extends JFrame {
 		ContestDetails contestDetails = new ContestDetails(contests, numContests);
 		JSplitPane leftSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,
 				personalData, contestDetails);
-		leftSplitPane.setDividerLocation(430);
+		leftSplitPane.setDividerLocation(HORIZONTAL_POSITION_OF_VERTICAL_SPLIT);
 		
 		// Right side
 		LogViewer logViewer = new LogViewer();
@@ -92,7 +103,7 @@ public class CCUI extends JFrame {
 		JSplitPane bigSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
 				leftSplitPane, logViewer);
 		bigSplitPane.setOneTouchExpandable(true);
-		bigSplitPane.setDividerLocation(350);
+		bigSplitPane.setDividerLocation(VERTICAL_POSITION_OF_HORIZONTAL_SPLIT);
 		
 		Container contentPane = getContentPane();
 		contentPane.add(bigSplitPane);
