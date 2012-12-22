@@ -1,73 +1,68 @@
 <Contest name="RSGB IOTA" sponsor="RSGB" shortName="RSGB-IOTA">
-	<UI>
-		<Location prompt="Location:" type="list">
-			<Item>Island station</Item>
-			<Item>World station</Item>
-		</Location>	
+<!-- RSGB-IOTA.xml 1.0 20121221 M0XDF -->
 
-		<OpCount prompt="Operators:" type="list">
+	<UI>
+		<Category prompt="Category :" type="list">
 			<Item>SINGLE-OP</Item>
 			<Item>MULTI-OP</Item>
-		</OpCount>
+		</Category>
 
-		<CategoryAssisted prompt="Assited?" type="list">
-			<Item>ASSISTED</Item>
-			<Item>UNASSISTED</Item>
-		</CategoryAssisted>
-
-		<DXpedition prompt="DXpedition?" type="list">
-			<Item>EXPEDITION</Item>
-			<Item>NON-DXPEDITION</Item>
-		</DXpedition>
-
-		<CategoryMode prompt="Mode:" type="list">
+		<CategoryPower prompt="Category Power :" type="list">
+			<Item>HIGH</Item>
+			<Item>LOW</Item>
+			<Item>QRP</Item>
+		</CategoryPower>
+	
+		<CategoryMode prompt="Category Mode: " type="list">
 			<Item>CW</Item>
 			<Item>SSB</Item>
 			<Item>MIXED</Item>
 		</CategoryMode>
 
-		<CategoryPower prompt="Category power:" type="list">
-			<Item>HIGH</Item>
-			<Item>LOW</Item>
-			<Item>QRP</Item>
-		</CategoryPower>
+		<CategoryAssisted prompt="Category Assisted: " type="list">
+			<Item>ASSISTED</Item>
+			<Item>UNASSISTED</Item>
+		</CategoryAssisted>
 
-		<OperatingTime prompt="Time:" type="list">
+		<CategoryDxpedition prompt="Category Dxpedition :" type="list">
+			<Item>NON-EXPEDITION</Item>
+			<Item>EXPEDITION</Item>
+		</CategoryDxpedition>
+
+		<CategoryTime prompt="Category Time :" type="list">
 			<Item>12-HOURS</Item>
 			<Item>24-HOURS</Item>
-		</OperatingTime>
-	
-		<IslandName prompt="Island Name:" type="text"/>
-	
+		</CategoryTime>
+
 		<Operators prompt="Operators:" type="text"/>
 
-		<RecipeVersion prompt="Recipe version:" type="list">
-			<Item>contest recipe version 1.0, by NE1RD</Item>
-		</RecipeVersion>
+		<Soapbox1 prompt="Soapbox:" type="text"/>
+		<Soapbox2 prompt="Soapbox:" type="text"/>
+		<Soapbox3 prompt="Soapbox:" type="text"/>
 	</UI>
 			
 	<Cabrillo>
 		<Line><Text>START-OF-LOG: 2.0</Text></Line>
 		<Line><Text>CONTEST: RSGB-IOTA</Text></Line>
-		<Line><Text>CALLSIGN: </Text> <MyCallsign/> </Line>
-		<Line><Text>OPERATORS: </Text> <Operators/> </Line>
-		<Line><Text>CATEGORY: </Text> <OpCount/> 
-			<Text> ALL </Text> <CategoryPower/>
-			<Text> </Text> <CategoryMode/> </Line>
-		<Line><Text>CATEGORY-ASSISTED: </Text> <CategoryAssisted/> </Line>	
-		<Line><Text>CATEGORY-DXPEDITION: </Text> <DXpedition/> </Line>
-		<Line><Text>CATEGORY-TIME: </Text> <OperatingTime/> </Line>
-		<Line><Text>IOTA-ISLAND-NAME: </Text> <IslandName/> </Line>
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
+		<Line><Text>OPERATORS: </Text><Operators/></Line>
+		<Line><Text>CATEGORY: </Text><Category/><Text> ALL </Text><CategoryPower/><Text> </Text><CategoryMode/></Line>
+		<Line><Text>CATEGORY-ASSISTED: </Text><CategoryAssisted/></Line>
+		<Line><Text>CATEGORY-DXPEDITION: </Text><CategoryDxpedition/></Line>
+		<Line><Text>CATEGORY-TIME: </Text><CategoryTime/></Line>
+		<Line><Text>IOTA-ISLAND-NAME: </Text><Island/></Line>
 		<Line><Text>NAME: </Text><Name/></Line>
 		<Line><Text>ADDRESS: </Text><Address1/></Line>
 		<Line><Text>ADDRESS: </Text><Address2/></Line>
 		<Line><Text>ADDRESS: </Text><City/></Line>
 		<Line><Text>ADDRESS: </Text><State/></Line>
 		<Line><Text>ADDRESS: </Text><PostalCode/></Line>
-		<Line><Text>ADDRESS: </Text><Country/></Line>					
-		<Line><Text>ADDRESS: </Text><Email/></Line>		
-		<Line><Text>CREATED-BY: </Text><Version/>
-			<Text>, </Text> <RecipeVersion/> </Line>
+		<Line><Text>ADDRESS: </Text><Country/></Line>
+		<Line><Text>ADDRESS: </Text><Email/></Line>
+		<Line><Text>SOAPBOX: </Text><Soapbox1/></Line>
+		<Line><Text>SOAPBOX: </Text><Soapbox2/></Line>
+		<Line><Text>SOAPBOX: </Text><Soapbox3/></Line>
+		<Line><Text>CREATED-BY: </Text><Version/><Text>, recipe RSGB-IOTA 1.0</Text></Line>
 		<QSO>
 			<Text>QSO:</Text>
 			<Frequency/>
@@ -77,11 +72,11 @@
 			<MyCallsign/>
 			<RSTs/>
 			<STXn/>
-			<STX ifEmpty="-----"/>
+			<STX ifEmpty="------"/>
 			<TheirCallsign/>
 			<RSTr/>
 			<SRXn/>
-			<SRX ifEmpty="-----"/>
+			<SRX ifEmpty="------"/>
 		</QSO>
 		<Line><Text>END-OF-LOG:</Text></Line>
 	</Cabrillo>

@@ -1,12 +1,12 @@
-<Contest name="RSGB AFS CW / SSB" sponsor="RSGB" shortName="RSGB-AFS">
-<!-- RSGB-AFS.xml 1.0 20121221 M0XDF -->
+<Contest name="RSGB SSB FD" sponsor="RSGB" shortName="RSGB-SSB-FD">
+<!-- RSGB-SSB-FD.xml 1.0 20121221 M0XDF -->
 
 	<UI>
-		<TestName prompt="Contest: " type="list">
-			<Item>RSGB-AFS-CW</Item>
-			<Item>RSGB-AFS-SSB</Item>
-		</TestName>
-		
+		<CategoryOverlay prompt="Category Overlay:" type="list">
+			<Item>OPEN</Item>
+			<Item>RESTRICTED</Item>
+		</CategoryOverlay>
+
 		<Operators prompt="Operators:" type="text"/>
 
 		<Soapbox1 prompt="Soapbox:" type="text"/>
@@ -16,10 +16,11 @@
 			
 	<Cabrillo>
 		<Line><Text>START-OF-LOG: 2.0</Text></Line>
-		<Line><Text>CONTEST: </Text><TestName/></Line>
+		<Line><Text>CONTEST: RSGB-SSB-FD</Text></Line>
 		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
 		<Line><Text>OPERATORS: </Text><Operators/></Line>
 		<Line><Text>CLUB: </Text><Club/></Line>
+		<Line><Text>CATEGORY-OVERLAY: </Text><CategoryOverlay/></Line>
 		<Line><Text>NAME: </Text><Name/></Line>
 		<Line><Text>ADDRESS: </Text><Address1/></Line>
 		<Line><Text>ADDRESS: </Text><Address2/></Line>
@@ -31,7 +32,7 @@
 		<Line><Text>SOAPBOX: </Text><Soapbox1/></Line>
 		<Line><Text>SOAPBOX: </Text><Soapbox2/></Line>
 		<Line><Text>SOAPBOX: </Text><Soapbox3/></Line>
-		<Line><Text>CREATED-BY: </Text><Version/><Text>, recipe RSGB-AFS 1.0</Text></Line>
+		<Line><Text>CREATED-BY: </Text><Version/><Text>, recipe RSGB-SSB-FD 1.0</Text></Line>
 		<QSO>
 			<Text>QSO:</Text>
 			<Frequency/>

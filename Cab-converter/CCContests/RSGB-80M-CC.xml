@@ -1,13 +1,22 @@
-<Contest name="RSGB AFS CW / SSB" sponsor="RSGB" shortName="RSGB-AFS">
-<!-- RSGB-AFS.xml 1.0 20121221 M0XDF -->
+<Contest name="RSGB 80M Club Championship" sponsor="RSGB" shortName="RSGB-80M-CC">
+<!-- RSGB-80M-CC.xml 1.0 20121221 M0XDF -->
 
 	<UI>
-		<TestName prompt="Contest: " type="list">
-			<Item>RSGB-AFS-CW</Item>
-			<Item>RSGB-AFS-SSB</Item>
-		</TestName>
-		
-		<Operators prompt="Operators:" type="text"/>
+		<OperatorCategory prompt="Operator Category:" type="list">
+			<Item>SINGLE-OP</Item>
+			<Item>MULTI-OP</Item>
+		</OperatorCategory>
+	
+		<ModeCategory prompt="Mode Category: " type="list">
+			<Item>CW</Item>
+			<Item>SSB</Item>
+			<Item>DATA</Item>
+		</ModeCategory>
+
+		<PowerCategory prompt="Power Category :" type="list">
+			<Item>LOW</Item>
+			<Item>QRP</Item>
+		</PowerCategory>
 
 		<Soapbox1 prompt="Soapbox:" type="text"/>
 		<Soapbox2 prompt="Soapbox:" type="text"/>
@@ -16,22 +25,22 @@
 			
 	<Cabrillo>
 		<Line><Text>START-OF-LOG: 2.0</Text></Line>
-		<Line><Text>CONTEST: </Text><TestName/></Line>
+		<Line><Text>CONTEST: RSGB-80M-CC</Text></Line>
 		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
-		<Line><Text>OPERATORS: </Text><Operators/></Line>
 		<Line><Text>CLUB: </Text><Club/></Line>
+		<Line><Text>CATEGORY: </Text><OperatorCategory/><Text> </Text><ModeCategory/><Text> </Text><PowerCategory/></Line>
 		<Line><Text>NAME: </Text><Name/></Line>
 		<Line><Text>ADDRESS: </Text><Address1/></Line>
 		<Line><Text>ADDRESS: </Text><Address2/></Line>
 		<Line><Text>ADDRESS: </Text><City/></Line>
 		<Line><Text>ADDRESS: </Text><State/></Line>
 		<Line><Text>ADDRESS: </Text><PostalCode/></Line>
-		<Line><Text>ADDRESS: </Text><Country/></Line>	
+		<Line><Text>ADDRESS: </Text><Country/></Line>
 		<Line><Text>ADDRESS: </Text><Email/></Line>
 		<Line><Text>SOAPBOX: </Text><Soapbox1/></Line>
 		<Line><Text>SOAPBOX: </Text><Soapbox2/></Line>
 		<Line><Text>SOAPBOX: </Text><Soapbox3/></Line>
-		<Line><Text>CREATED-BY: </Text><Version/><Text>, recipe RSGB-AFS 1.0</Text></Line>
+		<Line><Text>CREATED-BY: </Text><Version/><Text>, recipe RSGB-80M-CC 1.0</Text></Line>
 		<QSO>
 			<Text>QSO:</Text>
 			<Frequency/>
