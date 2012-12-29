@@ -1,8 +1,3 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
@@ -24,8 +19,10 @@ import java.io.File;
  *  ~/Documents/CCContests for MacOS X and LINUX users
  * Desktop\CCContests for Windows users
  * 
- * @author B. Scott Andersen
- *
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */

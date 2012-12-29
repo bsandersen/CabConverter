@@ -14,8 +14,10 @@ import javax.swing.JFileChooser;
  * Our job is to open organize a file selection, open the file, parse it,
  * and get the file contents displayed and ready for processing.
  * 
- * @author B. Scott Andersen
- * 
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
@@ -23,6 +25,7 @@ public class OpenAdifItemListener implements ActionListener {
 	
 	/**
 	 * This is the method that gets invoked when File->Open is selected.
+	 * @param e The event associated with the action
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JFileChooser fc = new JFileChooser();

@@ -1,8 +1,3 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 
 import java.awt.Component;
@@ -16,8 +11,10 @@ import javax.swing.JTextField;
  * This object provides a portion of the UI relating to the display, retrieveal,
  * and saving of personal data. This object is a Singleton; there can be only one.
  * 
- * @author B. Scott Andersen
- *
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
@@ -41,19 +38,76 @@ public class PersonalData extends JScrollPane {
 	 * These are the labels the correspond to the array of text fields
 	 * generated in the constructor.
 	 */
+	
+	
+	/**
+	 * String key for our call sign. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_MyCallsign = "MyCallsign";
+	
+	/**
+	 * String key for our name. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_Name = "Name";
+	
+	/**
+	 * String key for our address (line 1). Used by both preferences save and XML expansion.
+	 */
 	public static final String key_Address1 = "Address1";
+	
+	/**
+	 * String key for our address (line 2). Used by both preferences save and XML expansion.
+	 */
 	public static final String key_Address2 = "Address2";
+	
+	/**
+	 * String key for our city. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_City = "City"; 
+	
+	/**
+	 * String key for our state. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_State = "State";
+	
+	/**
+	 * String key for our ZIP code or postal code. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_Postal = "PostalCode";
+	
+	/**
+	 * String key for our country. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_Country = "Country";
+	
+	/**
+	 * String key for our email address. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_Email = "Email";
+	
+	/**
+	 * String key for our IOTA designator. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_IOTA = "IOTA";
+	
+	/**
+	 * String key for our island name. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_Island = "Island";
+	
+	/**
+	 * String key for our ARRL section. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_ARRLsection = "ARRLsection";
+	
+	/**
+	 * String key for our CQ zone. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_Zone = "Zone";
+	
+	/**
+	 * String key for our contest club name. Used by both preferences save and XML expansion.
+	 */
 	public static final String key_Club = "Club";
 	
 	/*
@@ -189,91 +243,230 @@ public class PersonalData extends JScrollPane {
 	/*
 	 * getters
 	 */
-	public String getMyCallSign() {
+	/**
+	 * Getter
+	 * @return our callsign
+	 */
+	public final String getMyCallSign() {
 		return new String(fields[DataIndex.MYCALLSIGN.ordinal()].getText());
 	}
-	public String getName() {
+
+	/** 
+	 * Getter
+	 * @return our full name
+	 */
+	public final String getName() {
 		return new String(fields[DataIndex.NAME.ordinal()].getText());
 	}
-	public String getAddress1() {
+	
+	/**
+	 * Getter
+	 * @return the first line of our address
+	 */
+	public final String getAddress1() {
 		return new String(fields[DataIndex.ADDRESS1.ordinal()].getText());
 	}
-	public String getAddress2() {
+	
+	/**
+	 * Getter
+	 * @return the second line of our address
+	 */
+	public final String getAddress2() {
 		return new String(fields[DataIndex.ADDRESS2.ordinal()].getText());
 	}
-	public String getCity() {
+	
+	/**
+	 * Getter
+	 * @return our city
+	 */
+	public final String getCity() {
 		return new String(fields[DataIndex.CITY.ordinal()].getText());
 	}
-	public String getProvince() {
+	
+	/**
+	 * Getter
+	 * @return our state or province
+	 */
+	public final String getProvince() {
 		return new String(fields[DataIndex.PROVINCE.ordinal()].getText());
 	}
-	public String getPostalCode() {
+	
+	/**
+	 * Getter
+	 * @return our zip or postal code
+	 */
+	public final String getPostalCode() {
 		return new String(fields[DataIndex.POSTALCODE.ordinal()].getText());
 	}
-	public String getCountry() {
+	
+	/**
+	 * Getter
+	 * @return our country
+	 */
+	public final String getCountry() {
 		return new String(fields[DataIndex.COUNTRY.ordinal()].getText());
 	}
-	public String getEmail() {
+	
+	/**
+	 * Getter
+	 * @return our email address
+	 */
+	public final String getEmail() {
 		return new String(fields[DataIndex.EMAIL.ordinal()].getText());
 	}
-	public String getIotaDesignator() {
+	
+	/**
+	 * Getter
+	 * @return our IOTA island designator in the form XX-nnn
+	 */
+	public final String getIotaDesignator() {
 		return new String(fields[DataIndex.IOTADESGINATOR.ordinal()].getText());
 	}
-	public String getIslandName() {
+	
+	/**
+	 * Getter
+	 * @return The RSGB recognized island name associated with the designator
+	 */
+	public final String getIslandName() {
 		return new String(fields[DataIndex.ISLANDNAME.ordinal()].getText());
 	}
-	public String getArrlSection() {
+	
+	/**
+	 * Getter
+	 * @return our ARRL section
+	 */
+	public final String getArrlSection() {
 		return new String(fields[DataIndex.ARRLSECTION.ordinal()].getText());
 	}
-	public String getCqZone() {
+	
+	/**
+	 * Getter
+	 * @return our CQ zone
+	 */
+	public final String getCqZone() {
 		return new String(fields[DataIndex.CQZONE.ordinal()].getText());
 	}
-	public String getClub() {
+	
+	/**
+	 * Getter
+	 * @return the contesting club we belong to
+	 */
+	public final String getClub() {
 		return new String(fields[DataIndex.CLUB.ordinal()].getText());
 	}	
 	
 	/*
 	 * Setters
+	 * 
+	 */
+	/**
+	 * Setter
+	 * @param s our callsign to save
 	 */
 	public void setCallSign(String s) {
 		fields[DataIndex.MYCALLSIGN.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our name to save
+	 */
 	public void setName(String s) {
 		fields[DataIndex.NAME.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s the first line of our address to save
+	 */
 	public void setAddress1(String s) {
 		fields[DataIndex.ADDRESS1.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s the second line of our address to save
+	 */
 	public void setAddress2(String s) {
 		fields[DataIndex.ADDRESS2.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our city to save
+	 */
 	public void setCity(String s) {
 		fields[DataIndex.CITY.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our state or province to save
+	 */
 	public void setProvince(String s) {
 		fields[DataIndex.PROVINCE.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our ZIP or postal code to save
+	 */
 	public void setPostalCode(String s) {
 		fields[DataIndex.POSTALCODE.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our country to save
+	 */
 	public void setCountry(String s) {
 		fields[DataIndex.COUNTRY.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our email address to save
+	 */
 	public void setEmail(String s) {
 		fields[DataIndex.EMAIL.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our IOTA designator to save
+	 */
 	public void setIotaDesignator(String s) {
 		fields[DataIndex.IOTADESGINATOR.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our island name associated with the designator to save
+	 */
 	public void setIslandName(String s) {
 		fields[DataIndex.ISLANDNAME.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our ARRL section to save
+	 */
 	public void setArrlSection(String s) {
 		fields[DataIndex.ARRLSECTION.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our CQ zone to save
+	 */
 	public void getCqZone(String s) {
 		fields[DataIndex.CQZONE.ordinal()].setText(new String(s));
 	}
+	
+	/**
+	 * Setter
+	 * @param s our contesting radio club to save
+	 */
 	public void getClub(String s) {
 		fields[DataIndex.CLUB.ordinal()].setText(new String(s));
 	}	

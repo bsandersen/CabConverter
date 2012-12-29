@@ -1,14 +1,12 @@
-/**
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 import com.bsandersen.CabConverter.CCUI;
 
 /**
  * This is the main entry point to the program.
  * 
- * @author B. Scott Andersen
- *
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */

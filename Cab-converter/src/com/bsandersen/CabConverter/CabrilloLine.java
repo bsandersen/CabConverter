@@ -1,16 +1,13 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 
 /**
  * This class contains all the information for a given line of text
  * (not a QSO line) within a Cabrillo file. 
  * 
- * @author B. Scott Andersen
- * 
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
@@ -32,7 +29,8 @@ public class CabrilloLine {
 	 * If the element is a Text item, the type "Text" and the text element's
 	 * value is added. If the element is a reference to some data item, then
 	 * the data item like "Frequency" is added.
-	 * @author B. Scott Andersen
+	 * @param elementType The type of the element (text or list).
+	 * @param elementValue The value for the element from the XML description.
 	 */
 	public void addElement(String elementType, String elementValue) {
 		CabFileNode e = new CabFileNode(elementType, elementValue);
@@ -108,16 +106,34 @@ public class CabrilloLine {
 		return new String(s);
 	} // value
 
-	public CabrilloLine getNext() {
+	/**
+	 * Getter
+	 * @return the next line description from the recipe
+	 */
+	public final CabrilloLine getNext() {
 		return next;
 	}
-	public void setNext(CabrilloLine next) {
+	/**
+	 * Setter
+	 * @param next the next line description element to be remembered
+	 */
+	public final void setNext(CabrilloLine next) {
 		this.next = next;
 	}
-	public boolean isQsoPlaceholder() {
+	/**
+	 * Query
+	 * @return is this element the QSO placeholder/specifier?
+	 */
+	public final boolean isQsoPlaceholder() {
 		return isQsoPlaceholder;
 	}
-	public void setQsoPlaceholder(boolean isQsoPlaceholder) {
+	
+	
+	/**
+	 * Setter
+	 * @param isQsoPlaceholder is the answer to the question, "is this a QSO placeholder?"
+	 */
+	public final void setQsoPlaceholder(boolean isQsoPlaceholder) {
 		this.isQsoPlaceholder = isQsoPlaceholder;
 	}
 } // CabrilloLine

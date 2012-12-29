@@ -1,8 +1,3 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 
 import java.util.prefs.*;
@@ -11,8 +6,10 @@ import java.util.prefs.*;
  * User preferences such as their call sign, name, address, etc., are stored in
  * a standard Java preferences backing store managed by this object.
  * 
- * @author B. Scott Andersen
- * 
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
@@ -72,6 +69,7 @@ public class PreferencesManager {
 	/**
 	 * This method will retrieve the current personal preferences from the 
 	 * preferences backing store and populate the UI with the results.
+	 * @param p the personal data for the user to be saved.
 	 */
 	public void save(PersonalData p) {
 		// Get the preferences node for this user and this package.

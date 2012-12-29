@@ -1,8 +1,3 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 
 import java.awt.event.ActionEvent;
@@ -14,8 +9,13 @@ import java.io.PrintStream;
 import javax.swing.JFileChooser;
 
 /**
- * @author B. Scott Andersen
+ * This small class is used to handle the user's request to generate a Cabrillo
+ * file. 
  * 
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
@@ -23,6 +23,7 @@ public class GenerateCabrilloListener implements ActionListener {
 
 	/**
 	 * This is the method that gets invoked when File->Generate Cabrillo is selected.
+	 * @param e The event that triggers our action here
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JFileChooser fileChooser = new JFileChooser();

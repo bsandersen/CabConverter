@@ -1,8 +1,3 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 
 import java.util.Formatter;
@@ -12,8 +7,10 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  * This class provides a means of viewing the contents of an imported ADIF file.
- * @author B. Scott Andersen
- *
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */

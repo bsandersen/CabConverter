@@ -1,16 +1,13 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 
 /**
  * Holds the root of the contest descriptor as captured from
  * the XML file.
  * 
- * @author B. Scott Andersen
- *
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  * 
@@ -52,6 +49,7 @@ public class Contest {
 	/**
 	 * Adds a UI element to this contest. Order is preserved
 	 * between adding and retrieving the elements.
+	 * @param e 
 	 */
 	public void addUIElement(UIElement e) {
 		if (uiListHead == null) {
@@ -66,6 +64,7 @@ public class Contest {
 	/**
 	 * Adds a CabrilloLine element to this contest. Order
 	 * is preserved between adding and retrieving the elements.
+	 * @param line The line to add to the recipe
 	 */
 	public void addCabrilloLine(CabrilloLine line) {
 		if (cabHead == null) {
@@ -100,28 +99,60 @@ public class Contest {
 	/*
 	 * Setters and getters
 	 */
-	public String getName() {
+	/**
+	 * Getter function
+	 * @return The name of this contest
+	 */
+	public final String getName() {
 		return new String(name);
 	}
-	public void setName(String name) {
+	/**
+	 * Setter function
+	 * @param name The name of the contest to remember
+	 */
+	public final void setName(String name) {
 		this.name = new String(name);
 	}
-	public String getSponsor() {
+	/**
+	 * Getter function
+	 * @return The sponsor of this contest
+	 */
+	public final String getSponsor() {
 		return new String(sponsor);
 	}
-	public void setSponsor(String sponsor) {
+	/**
+	 * Setter function
+	 * @param sponsor The sponsor of this contest to remember
+	 */
+	public final void setSponsor(String sponsor) {
 		this.sponsor = new String(sponsor);
 	}
-	public String getShortName() {
+	/**
+	 * Getter function
+	 * @return The short name for the contest
+	 */
+	public final String getShortName() {
 		return new String(shortName);
 	}
-	public void setShortName(String shortName) {
+	/**
+	 * Setter function
+	 * @param shortName The short name of this contest to remember
+	 */
+	public final void setShortName(String shortName) {
 		this.shortName = new String(shortName);
 	}
-	public CabrilloQSO getQso() {
+	/**
+	 * Getter function
+	 * @return The QSO line recipe
+	 */
+	public final CabrilloQSO getQso() {
 		return qso;
 	}
-	public void setQso(CabrilloQSO qso) {
+	/**
+	 * Setter function
+	 * @param qso The QSO line recipe to remember
+	 */
+	public final void setQso(CabrilloQSO qso) {
 		this.qso = qso;
 	}
 }

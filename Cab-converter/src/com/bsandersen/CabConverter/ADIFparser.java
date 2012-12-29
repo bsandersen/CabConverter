@@ -1,8 +1,3 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 
 import java.io.BufferedReader;
@@ -14,14 +9,17 @@ import java.io.IOException;
  * This class provides a simple ADIF parser suitable for extracting
  * data from MacLoggerDX exported .ADIF files. 
  * 
- * @author B. Scott Andersen
- * 
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
 public class ADIFparser {	
 	/**
 	 * This method provides access to the reference to this Singleton object 
+	 * @return A reference to this singleton instance
 	 */
 	public static ADIFparser getInstance() {
 		return me;
@@ -66,7 +64,7 @@ public class ADIFparser {
 	 * a list of QSOs that can be walked by the contest processing part of
 	 * the program.
 	 * 
-	 * @param The file to open as selected by the user.
+	 * @param f The file to open as selected by the user.
 	 */
 	public void parseADIFfile(File f) {			
 		try {

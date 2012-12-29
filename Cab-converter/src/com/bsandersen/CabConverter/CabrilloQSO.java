@@ -1,8 +1,3 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 
 import java.util.Formatter;
@@ -13,8 +8,10 @@ import java.util.Formatter;
  * formatting capability to convert a set of ADIF QSO data into
  * a properly formatted QSO detail line.
  * 
- * @author B. Scott Andersen
- * 
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/* 
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  */
@@ -27,7 +24,6 @@ public class CabrilloQSO {
 	 * If the element is a Text item, the type "Text" and the text element's
 	 * value is added. If the element is a reference to some data item, then
 	 * the data item like "Frequency" is added.
-	 * @author B. Scott Andersen
 	 */
 	public void addElement(String elementType, String elementValue) {
 		CabFileNode e = new CabFileNode(elementType, elementValue);

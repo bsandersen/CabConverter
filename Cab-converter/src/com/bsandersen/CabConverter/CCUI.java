@@ -1,8 +1,3 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 
 import java.awt.Container;
@@ -25,8 +20,10 @@ import javax.swing.JSplitPane;
  * since we don't do anything with this program that cannot be redone
  * in 60 seconds or less.
  * 
- * @author 	B. Scott Andersen
- * 
+ * @author 	B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  *
@@ -47,6 +44,7 @@ public class CCUI extends JFrame {
 	
 	/**
 	 * Returns the instance of this object.
+	 * @return the singleton instance of this class
 	 */
 	public static CCUI getInstance() {
 		return ui;
@@ -60,8 +58,8 @@ public class CCUI extends JFrame {
 	 */
 	private final int WINDOW_HORIZONTAL_SIZE = 800;
 	private final int WINDOW_VERTICAL_SIZE   = 600;
-	private final int HORIZONTAL_POSITION_OF_VERTICAL_SPLIT = 390;
-	private final int VERTICAL_POSITION_OF_HORIZONTAL_SPLIT = 420;
+	private final int HORIZONTAL_POSITION_OF_SPLIT = 420;
+	private final int VERTICAL_POSITION_OF_SPLIT = 205;
 	
 	/**
 	 * This class is a singleton that build the main user interface
@@ -95,7 +93,7 @@ public class CCUI extends JFrame {
 		ContestDetails contestDetails = new ContestDetails(contests, numContests);
 		JSplitPane leftSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,
 				personalData, contestDetails);
-		leftSplitPane.setDividerLocation(HORIZONTAL_POSITION_OF_VERTICAL_SPLIT);
+		leftSplitPane.setDividerLocation(VERTICAL_POSITION_OF_SPLIT);
 		
 		// Right side
 		LogViewer logViewer = new LogViewer();
@@ -103,7 +101,7 @@ public class CCUI extends JFrame {
 		JSplitPane bigSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
 				leftSplitPane, logViewer);
 		bigSplitPane.setOneTouchExpandable(true);
-		bigSplitPane.setDividerLocation(VERTICAL_POSITION_OF_HORIZONTAL_SPLIT);
+		bigSplitPane.setDividerLocation(HORIZONTAL_POSITION_OF_SPLIT);
 		
 		Container contentPane = getContentPane();
 		contentPane.add(bigSplitPane);
@@ -170,6 +168,11 @@ public class CCUI extends JFrame {
 	 * @author B. Scott Andersen
 	 */
 	private class ExitListener extends WindowAdapter {
+		
+		/**
+		 * Handles the window closing event and exits the application.
+		 * @param event The window closing event
+		 */
 		public void windowClosing(WindowEvent event) {
 			System.exit(0);
 		}

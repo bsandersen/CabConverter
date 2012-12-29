@@ -1,8 +1,3 @@
-/**
- * 
- * CabConverter: A Cabrillo generation tool for MacLoggerDX
- * Original concept and author: B. Scott Andersen (NE1RD)
- */
 package com.bsandersen.CabConverter;
 
 import java.awt.Component;
@@ -19,8 +14,10 @@ import javax.swing.JTextField;
  * very dynamic area as UI components are populated within
  * this pane from the XML specification of the contest.
  * 
- * @author B. Scott Andersen
- * 
+ * @author B. Scott Andersen (NE1RD)
+ */
+
+/*
  * CabConverter by B. Scott Andersen (NE1RD) is licensed under a 
  * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
  *
@@ -79,6 +76,9 @@ public class ContestDetails extends JScrollPane {
 	
 	/**
 	 * Constructor
+	 * 
+	 * @param contests The collection of contests to display in the list
+	 * @param contestCount the number of contests
 	 */
 	public ContestDetails(Contest contests[], int contestCount) {
 		us = this;
@@ -86,7 +86,7 @@ public class ContestDetails extends JScrollPane {
 		setLayout(null);
 		
 		contestList = new JComboBox();
-		contestList.setBounds(20, 20, 200, 30);
+		contestList.setBounds(20, 20, 375, 30);
 		contestList.setName(selectorName);
 		add(contestList);
 		
