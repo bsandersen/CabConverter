@@ -24,6 +24,8 @@ public class CabrilloQSO {
 	 * If the element is a Text item, the type "Text" and the text element's
 	 * value is added. If the element is a reference to some data item, then
 	 * the data item like "Frequency" is added.
+	 * @param elementType the type of the element at this point in the QSO line
+	 * @param elementValue the value of the element at this point in the QSO line
 	 */
 	public void addElement(String elementType, String elementValue) {
 		CabFileNode e = new CabFileNode(elementType, elementValue);

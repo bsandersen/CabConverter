@@ -29,6 +29,7 @@ import java.io.File;
 public class XMLparser {
 	/**
 	 * This method provides access to the reference to this Singleton object 
+	 * @return the reference to this singleton object.
 	 */
 	public static XMLparser getInstance() {
 		return me;

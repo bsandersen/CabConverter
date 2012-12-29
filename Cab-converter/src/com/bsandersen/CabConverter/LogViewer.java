@@ -64,6 +64,7 @@ public class LogViewer extends JScrollPane {
 	
 	/**
 	 * This method adds the QSO data to the table
+	 * @param rec The ADIF record with the QSO data
 	 */
 	public void addQSO(ADIFrecord rec) {
 		logTable.addQSO(rec);
