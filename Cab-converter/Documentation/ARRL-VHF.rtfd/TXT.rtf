@@ -7,13 +7,15 @@
 \margl1440\margr1440\vieww15700\viewh21280\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\f0\fs48 \cf2 ARRL 10m Contest
+\f0\fs48 \cf2 ARRL VHF Contests
 \fs24 \cf0 \
-ARRL-10
+ARRL-VHF-JAN\
+ARRL-VHF-JUN\
+ARRL-VHF-SEP
 \fs20 \
 Contest recipe by B. Scott Andersen\
 ne1rd@arrl.net\
-27 November 2012
+31 December 2012
 \fs24 \
 \
 
@@ -23,26 +25,29 @@ ne1rd@arrl.net\
 \ls1\ilvl0
 \fs24 \cf0 {\listtext	1.	}Open the MacLoggerDX PrefsWindow by selecting "Preferences\'85" from the MacLoggerDX menu.\
 {\listtext	2.	}Click on the "Contest" tab.\
-{\listtext	3.	}Select the contest. Select ARRL-10 from the Contest ID list.\
+{\listtext	3.	}Select the contest. Select the Contest ID from the list (all are prefaced "ARRL-VHF-", select JAN, JUN, OR SEP depending on the month).\
 {\listtext	4.	}Select (check):\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 	For North American Entries:\
-		- "Show String Exchange", \
-		- "Show RST"\
-\
-	For DX Entries:\
-		- "Show Numeric Exchange", \
-		- "Show String Exchange", \
-		- "Auto Increment STX", and \
-		- "Leading Zeros" \
-		- "Show RST"\
-	leaving all other items unchecked.\
+\cf0 	- "Show String Exchange"\
+	leaving all other items unchecked (see NOTE below).\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural
 \ls2\ilvl0\cf0 {\listtext	5.	}Close the PrefsWindow.\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 \cf0 \
+NOTE: Although RST is not part of the contest exchange it is desirable to populate those fields with 59 or 599 so the "default" values are in the QSO records.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \ul \ulc0 CabConverter 2 limitations:\ulnone \
+It is not possible to specify the "station name" if you operate from another location. For example, if your call is AA1AA and you operate from KK1KK, then this is usually specified in the Cabrillo file as \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 	OPERATORS: AA1AA @KK1KK\
+\
+CabConverter 2 does not support this specification. If you need to have this information in the Cabrillo file, you will need to add this line with a text editor.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\fs36 Before the contest
+\fs36 \cf0 \
+Before the contest
 \fs24 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
@@ -58,10 +63,8 @@ It is best to ensure that rig control is working prior to the contest start. A p
 		** to successfully format a Cabrillo file for the contest sponsor. 
 \b0 \cf0 \
 \
-Prior to the start of the contest enter your exchange information into the "Sent" text area as follows:\
-\
-	North American entries: Your state or province\
-	DX entries: Ensure the "Sent sn" field has "001"\
+Prior to the start of the contest enter your exchange information into the "Sent" text area:\
+	- this is your grid square with the form AAnn where AA are two letters and nn are two digits. For example, "FN42" is a legal exchange.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
@@ -69,9 +72,7 @@ Prior to the start of the contest enter your exchange information into the "Sent
 \fs24 \
 For each QSO:\
 * Enter the call sign of the other station in the "Call" field.\
-* Enter their other exchange information into the "Rcvd" field (State/Province/Serial number). \
-\
-DX entries: Note that the "Sent sn" field should increment with each QSO logged. (If it does not, open the PrefsWindow again and ensure the "Auto Increment STX" is checked.\
+* Enter their other exchange information into the "Rcvd" field (their grid square). \
 \
 
 \fs36 After the contest
@@ -79,8 +80,6 @@ DX entries: Note that the "Sent sn" field should increment with each QSO logged.
 Follow the 
 \i General Instructions for Converting Log Files to Cabrillo Format
 \i0 .\
-North American stations should use the "ARRL 10m (NA entry)" contest selection.\
-DX entries should use the "ARRL 10m (DX entry)" contest selection.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 \cf0 # # #}
