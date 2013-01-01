@@ -1,6 +1,8 @@
 # Makefile for the build and release of the CabConverter product
-# 28 November 2012
+# Initial version 28 November 2012
 # B. Scott Andersen, NE1RD
+
+all:	release
 
 clean:
 	/bin/rm -rf /tmp/CabConverter
@@ -10,6 +12,7 @@ jar:
 	( cd ../bin/; jar cfm ../CabConverter.jar ../Build/Manifest.txt *)
 
 release:
+	make clean
 	make jar
 	mkdir /tmp/CabConverter
 	mkdir /tmp/CabConverter/src/
@@ -33,6 +36,7 @@ release:
 	cp ../src/com/bsandersen/CabConverter/*.java /tmp/CabConverter/src/com/bsandersen/CabConverter
 	echo Moving JavaDoc...
 	(cd ../JavaDoc; tar cf - * | (cd /tmp/CabConverter/JavaDoc; tar xf - ))
-	tar cf ../Release/CabConverter.tar /tmp/CabConverter
+	(cd /tmp; tar cf CabConverter.tar CabConverter)
+	mv /tmp/CabConverter.tar ../Release/CabConverter.tar
 	/bin/rm -rf /tmp/CabConverter
 
