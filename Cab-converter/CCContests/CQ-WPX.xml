@@ -1,0 +1,98 @@
+<Contest name="CQ WPX" sponsor="CQ" shortName="CQ-WPX">
+	<UI>
+		<TestName prompt="Contest: " type="list">
+			<Item>CQ-WPX-CW</Item>
+			<Item>CQ-WPX-SSB</Item>
+		</TestName>
+	
+		<CategoryMode prompt="Contest mode: " type="list">
+			<Item>CW</Item>
+			<Item>SSB</Item>
+		</CategoryMode>
+		
+		<CategoryOperator prompt="Category operator:" type="list">
+			<Item>SINGLE-OP</Item>
+			<Item>MULTI-OP</Item>
+			<Item>CHECKLOG</Item>
+		</CategoryOperator>
+	
+		<CategoryAssisted prompt="Category assisted:" type="list">
+			<Item>ASSISTED</Item>
+			<Item>NON-ASSISTED</Item>
+		</CategoryAssisted>
+	
+		<CategoryBand prompt="Category band:" type="list">
+			<Item>ALL</Item>
+			<Item>160M</Item>
+			<Item>80M</Item>
+			<Item>40M</Item>
+			<Item>20M</Item>
+			<Item>15M</Item>
+			<Item>10M</Item>
+		</CategoryBand>
+		
+		<CategoryPower prompt="Category power:" type="list">
+			<Item>HIGH</Item>
+			<Item>LOW</Item>
+			<Item>QRP</Item>
+		</CategoryPower>
+		
+		<CategoryTransmitter prompt="Category transmitter: " type="list">
+			<Item>ONE</Item>
+			<Item>TWO</Item>
+			<Item>UNLIMITED</Item>
+		</CategoryTransmitter>
+		
+		<CategoryOverlay prompt="Overlay category: " type="list">
+			<Item> </Item>
+			<Item>TB-WIRES</Item>
+			<Item>ROOKIE</Item>
+		</CategoryOverlay>
+	
+		<Operators prompt="Operators:" type="text"/>
+
+		<RecipeVersion prompt="Template version:" type="list">
+			<Item>contest recipe version 1.0, by NE1RD</Item>
+		</RecipeVersion>
+	</UI>
+			
+	<Cabrillo>
+		<Line><Text>START-OF-LOG: 3.0</Text></Line>
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
+		<Line><Text>CONTEST: </Text><TestName/></Line>
+		<Line><Text>CATEGORY-OPERATOR: </Text><CategoryOperator/></Line>
+		<Line><Text>CATEGORY-ASSISTED: </Text><CategoryAssisted/></Line>
+		<Line><Text>CATEGORY-BAND: </Text><CategoryBand/></Line>
+		<Line><Text>CATEGORY-POWER: </Text><CategoryPower/></Line>
+		<Line><Text>CATEGORY-MODE: </Text><CategoryMode/></Line>
+		<Line><Text>CATEGORY-TRANSMITTER: </Text><CategoryTransmitter/></Line>
+		<Line><Text>CATEGORY-OVERLAY: </Text><CategoryOverlay/></Line>
+		<Line><Text>CLUB: </Text><Club/></Line>
+		<Line><Text>LOCATION: </Text><ARRLSection/></Line>
+		<Line><Text>CREATED-BY: </Text>
+				<Version/> <Text>, </Text> <RecipeVersion/> </Line>
+		<Line><Text>NAME: </Text><Name/></Line>
+		<Line><Text>ADDRESS: </Text><Address1/></Line>
+		<Line><Text>ADDRESS: </Text><Address2/></Line>
+		<Line><Text>ADDRESS-CITY: </Text><City/></Line>
+		<Line><Text>ADDRESS-STATE-PROVINCE: </Text><State/></Line>
+		<Line><Text>ADDRESS-POSTALCODE: </Text><PostalCode/></Line>
+		<Line><Text>ADDRESS-COUNTRY: </Text><Country/></Line>	
+		<Line><Text>EMAIL: </Text><Email/></Line>
+		<Line><Text>OPERATORS: </Text><Operators/></Line>
+		<QSO>
+			<Text>QSO:</Text>
+			<Frequency/>
+			<Mode/>
+			<Date/>
+			<Time/>
+			<MyCallsign/>
+			<RSTs/>
+			<STXn/>
+			<TheirCallsign/>
+			<RSTr/>
+			<SRXn/>
+		</QSO>
+		<Line><Text>END-OF-LOG:</Text></Line>
+	</Cabrillo>
+</Contest>

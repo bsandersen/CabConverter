@@ -1,0 +1,63 @@
+<Contest name="Vermont QSO PARTY" sponsor="RANV" shortName="VTQP">
+	<UI>	
+		<CategoryOperator prompt="Category operator:" type="list">
+			<Item>SINGLE-OP</Item>
+			<Item>MULTI-OP</Item>
+			<Item>MOBILE</Item>
+		</CategoryOperator>
+		
+		<CategoryPower prompt="Category power:" type="list">
+			<Item>HIGH</Item>
+			<Item>LOW</Item>
+			<Item>QRP</Item>
+		</CategoryPower>
+
+		<CategoryMode prompt="Category mode: " type="list">
+			<Item>CW</Item>
+			<Item>DIG</Item>
+			<Item>SSB</Item>
+			<Item>MIXED</Item>
+		</CategoryMode>
+		
+		<Operators prompt="Operators:" type="text"/>
+
+		<RecipeVersion prompt="Recipe version:" type="list">
+			<Item>contest recipe version 1.0, by NE1RD</Item>
+		</RecipeVersion>
+	</UI>
+			
+	<Cabrillo>
+		<Line><Text>START-OF-LOG: 2.0</Text></Line>
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
+		<Line><Text>CATEGORY: </Text> <CategoryOperator/> 
+			<Text> ALL </Text> <CategoryPower/> 
+			<Text> </Text> <CategoryMode/> </Line>
+		<Line><Text>CLUB: </Text><Club/></Line>
+		<Line><Text>CONTEST: VTQP</Text></Line>		
+		<Line><Text>CREATED-BY: </Text><Version/>
+			<Text>, </Text> <RecipeVersion/> </Line>
+		<Line><Text>NAME: </Text><Name/></Line>
+		<Line><Text>ADDRESS: </Text><Address1/></Line>
+		<Line><Text>ADDRESS: </Text><Address2/></Line>
+		<Line><Text>ADDRESS: </Text><City/></Line>
+		<Line><Text>ADDRESS: </Text><State/></Line>
+		<Line><Text>ADDRESS: </Text><PostalCode/></Line>
+		<Line><Text>ADDRESS: </Text><Country/></Line>					
+		<Line><Text>ADDRESS: </Text><Email/></Line>		
+		<Line><Text>OPERATORS: </Text><Operators/></Line>				
+		<QSO>
+			<Text>QSO:</Text>
+			<Frequency/>
+			<Mode/>
+			<Date/>
+			<Time/>
+			<MyCallsign/>
+			<RSTs/>
+			<STX/>
+			<TheirCallsign/>
+			<RSTr/>
+			<SRX/>
+		</QSO>
+		<Line><Text>END-OF-LOG:</Text></Line>
+	</Cabrillo>
+</Contest>

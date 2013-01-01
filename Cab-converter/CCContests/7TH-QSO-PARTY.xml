@@ -1,0 +1,80 @@
+<Contest name="7th Call Area QSO Party" sponsor="CODXC" shortName="7QP">
+	<UI>	
+		<CategoryClass prompt="Class:" type="list">
+			<Item>SINGLE-OP</Item>
+			<Item>MULTI-ONE</Item>
+			<Item>MULTI-MULTI</Item>
+			<Item>MOBILE</Item>
+		</CategoryClass>
+		
+		<CategoryBand prompt="Bands: " type="list">
+			<Item>ALL</Item>
+			<Item>10M</Item>
+			<Item>15M</Item>
+			<Item>20M</Item>
+			<Item>40M</Item>
+			<Item>80M</Item>
+			<Item>160M</Item>
+		</CategoryBand>
+		
+		<CategoryMode prompt="Mode:" type="list">
+			<Item>MIXED</Item>
+			<Item>CW</Item>
+			<Item>SSB</Item>
+			<Item>DIG</Item>
+		</CategoryMode>			
+			
+		<CategoryPower prompt="Category power:" type="list">
+			<Item>HIGH</Item>
+			<Item>LOW</Item>
+			<Item>QRP</Item>
+		</CategoryPower>
+		
+		<CategoryOverlay prompt="Overlay: " type="list">
+			<Item>  </Item>
+			<Item>COUNTY-EXPEDITION</Item>
+		</CategoryOverlay>
+		
+		<Operators prompt="Operators:" type="text"/>
+
+		<RecipeVersion prompt="Template version:" type="list">
+			<Item>contest recipe version 1.0, by NE1RD</Item>
+		</RecipeVersion>
+	</UI>
+			
+	<Cabrillo>
+		<Line><Text>START-OF-LOG: 2.0</Text></Line>
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
+		<Line><Text>CONTEST: 7QP</Text></Line>
+		<Line><Text>CATEGORY: </Text><CategoryClass/> <Text> </Text>
+				<CategoryBand/> <Text> </Text>
+				<CategoryPower/> <Text> </Text>
+				<CategoryMode/> </Line>
+		<Line><Text>CATEGORY-OVERLAY: </Text> <CategoryOverlay/> </Line>
+		<Line><Text>CLUB: </Text><Club/></Line>
+		<Line><Text>CREATED-BY: </Text>
+				<Version/> <Text>, </Text> <RecipeVersion/> </Line>
+		<Line><Text>NAME: </Text><Name/></Line>
+		<Line><Text>ADDRESS: </Text><Address1/></Line>
+		<Line><Text>ADDRESS: </Text><Address2/></Line>
+		<Line><Text>ADDRESS: </Text> <City/> <Text> </Text>
+				<State/> <Text> </Text> <PostalCode/> <Text> </Text> </Line>
+		<Line><Text>ADDRESS: </Text> <Country/>  </Line>
+		<Line><Text>EMAIL: </Text><Email/></Line>
+		<Line><Text>OPERATORS: </Text><Operators/></Line>
+		<QSO>
+			<Text>QSO:</Text>
+			<Frequency/>
+			<Mode/>
+			<Date/>
+			<Time/>
+			<MyCallsign/>
+			<RSTs/>
+			<STX/>
+			<TheirCallsign/>
+			<RSTr/>
+			<SRX/>
+		</QSO>
+		<Line><Text>END-OF-LOG:</Text></Line>
+	</Cabrillo>
+</Contest>

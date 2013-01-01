@@ -1,0 +1,54 @@
+<Contest name="North American Sprint" sponsor="ARRL" shortName="NASP">
+	<UI>
+		<TestName prompt="Contest: " type="list">
+			<Item>NA-SPRINT-CW</Item>
+			<Item>NA-SPRINT-RTTY</Item>
+			<Item>NA-SPRINT-SSB</Item>
+		</TestName>
+			
+		<CategoryPower prompt="Category power:" type="list">
+			<Item>HIGH</Item>
+			<Item>LOW</Item>
+			<Item>QRP</Item>
+		</CategoryPower>
+
+		<Operators prompt="Operators:" type="text"/>
+
+		<RecipeVersion prompt="Recipe version:" type="list">
+			<Item>contest recipe version 1.0, by NE1RD</Item>
+		</RecipeVersion>
+	</UI>
+			
+	<Cabrillo>
+		<Line><Text>START-OF-LOG: 2.0</Text></Line>
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
+		<Line><Text>CATEGORY: SINGLE-OP ALL </Text> <CategoryPower/> </Line>
+		<Line><Text>CLUB: </Text><Club/></Line>
+		<Line><Text>CONTEST: </Text><TestName/></Line>		
+		<Line><Text>CREATED-BY: </Text><Version/>
+			<Text>, </Text> <RecipeVersion/> </Line>
+		<Line><Text>NAME: </Text><Name/></Line>
+		<Line><Text>ADDRESS: </Text><Address1/></Line>
+		<Line><Text>ADDRESS: </Text><Address2/></Line>
+		<Line><Text>ADDRESS: </Text><City/></Line>
+		<Line><Text>ADDRESS: </Text><State/></Line>
+		<Line><Text>ADDRESS: </Text><PostalCode/></Line>
+		<Line><Text>ADDRESS: </Text><Country/></Line>					
+		<Line><Text>ADDRESS: </Text><Email/></Line>		
+		<Line><Text>OPERATORS: </Text><Operators/></Line>				
+		<QSO>
+			<Text>QSO:</Text>
+			<Frequency/>
+			<Mode/>
+			<Date/>
+			<Time/>
+			<MyCallsign/>
+			<STXn/
+			<STX/>
+			<TheirCallsign/>
+			<SRXn/>
+			<SRX/>
+		</QSO>
+		<Line><Text>END-OF-LOG:</Text></Line>
+	</Cabrillo>
+</Contest>
