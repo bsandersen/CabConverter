@@ -33,6 +33,6 @@ release:
 	cp ../src/com/bsandersen/CabConverter/*.java /tmp/CabConverter/src/com/bsandersen/CabConverter
 	echo Moving JavaDoc...
 	(cd ../JavaDoc; tar cf - * | (cd /tmp/CabConverter/JavaDoc; tar xf - ))
-	(cd /tmp; tar cf ~/Desktop/CabConverter.tar CabConverter)
+	tar cf ../Release/CabConverter.tar /tmp/CabConverter
 	/bin/rm -rf /tmp/CabConverter
 
