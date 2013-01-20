@@ -99,6 +99,8 @@ public class CabrilloQSO {
 				} else {
 					s = s.concat(r.exchangeReceived + " ");
 				}
+			} else if (key.compareToIgnoreCase("Text") == 0) {
+				s = s.concat(e.value() + " ");
 			} else {
 				s = s.concat(key + " ");
 			}
