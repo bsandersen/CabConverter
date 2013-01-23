@@ -52,7 +52,7 @@
 		<Operators prompt="Operator(s) call:" type="text"/>
 
 		<RecipeVersion prompt="Recipe version:" type="list">
-			<Item>contest recipe version 1.0, by NE1RD</Item>
+			<Item>contest recipe version 1.01, by NE1RD</Item>
 		</RecipeVersion>
 	</UI>
 			
@@ -77,10 +77,11 @@
 		<Line><Text>EMAIL: </Text><Email/></Line>
 		<Line><Text>CREATED-BY: </Text><Version/>
 								<Text>, </Text> <RecipeVersion/> </Line>
-		
+		<!-- Notes that the VHF contest wants the frequency in MHz, not KHz 
+		    So, we use the attribute inMhz to get a two or three digit number -->
 		<QSO>
 			<Text>QSO:</Text>
-			<Frequency/>
+			<Frequency inMhz="true"/>
 			<Mode/>
 			<Date/>
 			<Time/>

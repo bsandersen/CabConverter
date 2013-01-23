@@ -19,6 +19,9 @@ public class CabrilloQSO {
 	CabFileNode qsoDetailHead = null;
 	CabFileNode qsoDetailTail = null;
 	
+	// If there is an attribute on the frequency for inMhz set this
+	private boolean frequencyInMhz = false;
+	
 	/**
 	 * addElement adds the essence of the element to the QSO description.
 	 * If the element is a Text item, the type "Text" and the text element's
@@ -66,11 +69,19 @@ public class CabrilloQSO {
 			} else if (key.compareToIgnoreCase("Time") == 0) {
 				s = s.concat(r.time + " ");
 			} else if (key.compareToIgnoreCase("Frequency") == 0) {
-				f = new Formatter();
-				long v = new Double(r.frequency * 1000.0).longValue();
-				f.format("%05d ", v);
-				s = s.concat(f.toString());
-				f.close();
+				if (frequencyInMhz) {
+					f = new Formatter();
+					long v = new Double(r.frequency).longValue();
+					f.format("%02d ", v);
+					s = s.concat(f.toString());
+					f.close();					
+				} else {
+					f = new Formatter();
+					long v = new Double(r.frequency * 1000.0).longValue();
+					f.format("%05d ", v);
+					s = s.concat(f.toString());
+					f.close();
+				}
 			} else if (key.compareToIgnoreCase("Mode") == 0) {
 				s = s.concat(mapMode(r.mode) + " ");
 			} else if (key.compareToIgnoreCase("RSTs") == 0) {
@@ -141,5 +152,21 @@ public class CabrilloQSO {
 				s = s.concat(modeIn);
 			}
 		return s;
+	}
+
+	/**
+	 * Attribute of Frequency set?
+	 * @return attribute inMhz set?
+	 */
+	public boolean isFrequencyInMhz() {
+		return frequencyInMhz;
+	}
+
+	/**
+	 * Attribute of Frequency set?
+	 * @param frequencyInMhz is attribute inMhz present?
+	 */
+	public void setFrequencyInMhz(boolean frequencyInMhz) {
+		this.frequencyInMhz = frequencyInMhz;
 	}
 }

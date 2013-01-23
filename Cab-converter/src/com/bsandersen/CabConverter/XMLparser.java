@@ -407,6 +407,19 @@ public class XMLparser {
 									}
 
 									qso.addElement(qsoChildElement.getNodeName(), ifEmptyString);
+								} else if (qsoChildElement.getNodeName().equalsIgnoreCase("Frequency")) {
+									// The Frequency element can have an attribute: inMhz.
+									// If this is set then we express the frequency in Mhz, as two or
+									// three digits (like 50, 144, or 440).
+									NamedNodeMap attributes = qsoChildElement.getAttributes();
+									
+									for (int i = 0; i < attributes.getLength(); i++) {
+										if (attributes.item(i).getNodeName().equalsIgnoreCase("inMhz")) {
+											// Remember if we saw the attribute
+											qso.setFrequencyInMhz(true);
+										}
+									}
+									qso.addElement(qsoChildElement.getNodeName(), "");
 								} else if (Character.isLetter(qsoChildElement.getNodeName().charAt(0))) {
 									// We don't expect to see any children from
 									// simple macro calls. Just add the macro name.

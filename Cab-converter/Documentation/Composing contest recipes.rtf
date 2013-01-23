@@ -5,7 +5,7 @@
 \red217\green11\blue0;\red255\green39\blue18;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
 {\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
-\margl1440\margr1440\vieww12040\viewh16300\viewkind0
+\margl1440\margr1440\vieww11900\viewh16300\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc
 
 \f0\fs48 \cf2 Composing contest recipes
@@ -14,7 +14,7 @@
 \b Developing contest definition files for CabConverter 2
 \b0 \
 
-\fs20 B. Scott Andersen, 25 November 2012
+\fs20 B. Scott Andersen, 22 January 2013
 \fs24 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 \cf0 \
@@ -339,7 +339,8 @@ The final major component to discuss is the QSO element. There is only one QSO e
 \cf0 	\cf4 MyCallsign		\cf0 ~ The call sign of the user (obtained from the personal data section)\cf4 \
 \cf0 	\cf4 Date			\cf0 ~ The date of the QSO in the form YYYY-MM-DD\cf4 \
 \cf0 	\cf4 Time			\cf0 ~ The time of the QSO in the form HHMM\cf4 \
-\cf0 	\cf4 Frequency		\cf0 ~ The frequency of the QSO in the form NNNNN (in KHz)\cf4 \
+\cf0 	\cf4 Frequency		\cf0 ~ The frequency of the QSO in the form NNNNN (in KHz)\
+				  unless the inMhz="true" which formats it in MHz NN or NNN\cf4 \
 \cf0 	\cf4 Mode			\cf0 ~ The mode used in the contact (see note below)\cf4 \
 \cf0 	\cf4 RSTs			\cf0 ~ The RST sent\cf4 \
 \cf0 	\cf4 RSTr			\cf0 ~ The RST received\cf4 \
@@ -372,6 +373,8 @@ The XML entities with the STX and SRX keywords may contain an optional attribute
 \
 \pard\pardeftab720
 \cf0 If a given QSO from the user's log file has the SRX text field empty then CabConverter 2 will substitute the string specified in the attribute definition for "ifEmpty." In this example, that string is five dash characters. Only the SRX and STX keywords are allowed attributes within the QSO section.\
+\
+The Frequency element can have an inMhz="true" element. If present, it CabConverter 2 will format the frequency as a MHz value (instead of KHz, as is the default).\
 \
 Each record in the ADIF file (the user's radio log) will be translated into a single QSO line using the pattern dictated by the QSO section of the XML file. \
 \

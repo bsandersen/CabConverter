@@ -13,5 +13,5 @@ public class Version {
 	/**
 	 * The version of the software
 	 */
-	public final static String version = "CabConverter 2.01";
+	public final static String version = "CabConverter 2.02";
 }
