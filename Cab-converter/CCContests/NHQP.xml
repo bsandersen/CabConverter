@@ -14,7 +14,7 @@
 
 		<RecipeVersion prompt="Recipe version:" type="list">
 			<Item>contest recipe version 1.0, by NE1RD</Item>
-		</RecipeVersion>
+		</RecipeVersion> 
 	</UI>
 			
 	<Cabrillo>

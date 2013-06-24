@@ -10,9 +10,9 @@
 		<QSO>
 			<Date/> 				<Text> | </Text>
 			<Time/> 				<Text> | </Text>
-			<Frequency/> 		<Text> | </Text>
+			<Frequency/> 			<Text> | </Text>
 			<Mode/>					<Text> | </Text>
-			<TheirCallsign/><Text> | </Text>
+			<TheirCallsign/>		<Text> | </Text>
 			<RSTs/>					<Text> | </Text>
 			<RSTr/>					<Text> | </Text>
 			<STX/>					<Text> | </Text>
