@@ -1,0 +1,25 @@
+<Contest name="Excel export" sponsor="None" shortName="Excel">
+	<UI>
+		<RecipeVersion prompt="Recipe version:" type="list">
+			<Item>contest recipe version 1.0, by NE1RD</Item>
+		</RecipeVersion>
+	</UI>
+			
+	<Cabrillo>
+		<Line><Text>Date        | Time   | Freq    | Mode | Callsign | RSTs |RSTr | STX | STXn | SRX | SRXn </Text></Line>			
+		<QSO>
+			<Date/> 				<Text> | </Text>
+			<Time/> 				<Text> | </Text>
+			<Frequency/> 		<Text> | </Text>
+			<Mode/>					<Text> | </Text>
+			<TheirCallsign/><Text> | </Text>
+			<RSTs/>					<Text> | </Text>
+			<RSTr/>					<Text> | </Text>
+			<STX/>					<Text> | </Text>
+			<STXn/>					<Text> | </Text>
+			<SRX/>					<Text> | </Text>
+			<SRXn/>
+		</QSO>
+		<Line><Text>END-OF-LOG:</Text></Line>
+	</Cabrillo>
+</Contest>
