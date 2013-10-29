@@ -98,7 +98,19 @@ public class CabrilloLine {
 				} else {
 					// It wasn't in the personal data, check the contest
 					// specific data to see if there is a mapping.
-					s = s.concat(contestDetails.getExpandedValue(type));
+					
+					String sval = contestDetails.getExpandedValue(type);
+					
+					// We use the value --NONE-- to indicate that this line should
+					// be omitted from the output. Use this when a pick-list for the
+					// use includes an option for "NONE" and the contest sponsor doesn't
+					// want to see that line at all if it is "NONE".
+					
+					if (sval.compareTo("--NONE--") == 0) {
+						// Suppress the line from being appended.
+					} else {
+						s = s.concat(sval);
+					}
 				}
 			} // not "Text"
 			e = e.getNext();

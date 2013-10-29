@@ -147,7 +147,7 @@ public class CabrilloQSO {
 				s = s.concat("PH");
 			} else if ((modeIn.compareToIgnoreCase("RTTY") == 0) ||
 					   (modeIn.compareToIgnoreCase("RTTY-R") == 0)) {
-				s = s.concat("RT");
+				s = s.concat("RY");
 			} else {
 				s = s.concat(modeIn);
 			}
