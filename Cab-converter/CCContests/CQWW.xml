@@ -70,7 +70,7 @@
 		<Line><Text>ADDRESS: </Text><Address1/></Line>
 		<Line><Text>ADDRESS: </Text><Address2/></Line>
 		<Line><Text>ADDRESS-CITY: </Text><City/></Line>
-		<Line><Text>ADDRESS-STATE: </Text><State/></Line>
+		<Line><Text>ADDRESS-STATE-PROVINCE: </Text><State/></Line>
 		<Line><Text>ADDRESS-POSTALCODE: </Text><PostalCode/></Line>
 		<Line><Text>ADDRESS-COUNTRY: </Text><Country/></Line>	
 		<Line><Text>EMAIL: </Text><Email/></Line>
