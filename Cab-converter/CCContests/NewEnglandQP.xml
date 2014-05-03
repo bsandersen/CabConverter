@@ -1,0 +1,66 @@
+<Contest name="New England QSO Party" sponsor="NEQP.org" shortName="NEWEQP">
+	<UI>	
+		<CategoryClass prompt="Class:" type="list">
+			<Item>SINGLE-OP</Item>
+			<Item>MULTI-ONE</Item>
+		</CategoryClass>
+		
+		<CategoryMode prompt="Mode:" type="list">
+			<Item>MIXED</Item>
+			<Item>CW</Item>
+			<Item>SSB</Item>
+			<Item>DIG</Item>
+		</CategoryMode>			
+			
+		<CategoryPower prompt="Category power:" type="list">
+			<Item>HIGH</Item>
+			<Item>LOW</Item>
+			<Item>QRP</Item>
+		</CategoryPower>
+		
+		<CategoryAssisted prompt="Assisted?" type="list">
+			<Item>ASSISTED</Item>
+			<Item>NON-ASSISTED</Item>
+		</CategoryAssisted>
+		
+		<RecipeVersion prompt="Template version:" type="list">
+			<Item>contest recipe version 1.0, by NE1RD</Item>
+		</RecipeVersion>
+	</UI>
+			
+	<Cabrillo>
+		<Line><Text>START-OF-LOG: 2.0</Text></Line>
+		<Line><Text>ARRL-SECTION: </Text><ARRLsection/></Line>
+		<Line><Text>CONTEST: NEQP</Text></Line>
+		<Line><Text>CALLSIGN: </Text><MyCallsign/></Line>
+		<Line><Text>CATEGORY: </Text><CategoryClass/> <Text> </Text>
+				<Text>ALL </Text>
+				<CategoryPower/> <Text> </Text>
+				<CategoryMode/> </Line>
+		<Line><Text>CATEGORY-ASSISTED: </Text> <CategoryAssisted/> </Line>
+
+		<Line><Text>NAME: </Text><Name/></Line>
+		<Line><Text>ADDRESS: </Text><Address1/></Line>
+		<Line><Text>ADDRESS: </Text><Address2/></Line>
+		<Line><Text>ADDRESS: </Text> <City/> <Text> </Text>
+				<State/> <Text> </Text> <PostalCode/> <Text> </Text> </Line>
+		<Line><Text>ADDRESS: </Text> <Country/>  </Line>
+		<Line><Text>CLUB: </Text><Club/></Line>
+		<Line><Text>CREATED-BY: </Text>
+				<Version/> <Text>, </Text> <RecipeVersion/> </Line>
+		<QSO>
+			<Text>QSO:</Text>
+			<Frequency/>
+			<Mode/>
+			<Date/>
+			<Time/>
+			<MyCallsign/>
+			<RSTs/>
+			<STX/>
+			<TheirCallsign/>
+			<RSTr/>
+			<SRX/>
+		</QSO>
+		<Line><Text>END-OF-LOG:</Text></Line>
+	</Cabrillo>
+</Contest>
