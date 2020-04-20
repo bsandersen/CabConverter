@@ -5,7 +5,7 @@
 all:	release
 
 clean:
-	/bin/rm -rf /tmp/CabConverter
+	/bin/rm -rf /tmp/CabConverter; /bin/rm -rf ../bin
 
 jar:
 	ant
