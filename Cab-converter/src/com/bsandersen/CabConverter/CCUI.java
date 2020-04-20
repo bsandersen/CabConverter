@@ -68,6 +68,7 @@ public class CCUI extends JFrame {
 	 */
 	public CCUI() {
 		super(Version.version);
+		System.out.println(Version.version);
 		ui = this;
 		
 		/*
