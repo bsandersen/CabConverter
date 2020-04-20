@@ -6,7 +6,8 @@
 
   <target name="compile" description="compile the source " >
  	<mkdir dir="${bin}"/> 
-    <javac includeantruntime="false" srcdir="${src}" destdir="${bin}"/>
+    <javac includeantruntime="false" srcdir="${src}" destdir="${bin}" debug="true">
+    </javac>
   </target>
 
   <target name="app" depends="compile"
