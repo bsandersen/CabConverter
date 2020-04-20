@@ -1,4 +1,6 @@
 package com.bsandersen.CabConverter;
+import java.util.*; 
+import java.lang.*;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -74,6 +76,19 @@ public class ContestDetails extends JScrollPane {
 		return currentContest;
 	}
 	
+	class SortHelper implements Comparator<Contest> { 
+    // Used for sorting in ascending order
+    public int compare(Contest a, Contest b) 
+    { 
+      if (a == null) return 1;
+      if (b == null) return -1;
+      
+    	String left = a.getName();
+    	String right = b.getName();
+    	return(left.compareTo(right));
+    } 
+  }
+  
 	/**
 	 * Constructor
 	 * 
@@ -96,6 +111,11 @@ public class ContestDetails extends JScrollPane {
 		// in the ComboBox.
 		contestList.addActionListener(new SelectionMadeListener());
 		contestList.addItem(selectContest);
+		
+		// Sort the contest list before populating the UI
+		Arrays.sort(contests, new SortHelper());
+		
+		// Add the contests to the list
 		for (int i = 0; i < contestCount; i++) {
 			contestList.addItem(contests[i].getName());
 		}
